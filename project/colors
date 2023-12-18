@@ -1,0 +1,51 @@
+
+**order:
+    top left
+    bottom right
+    accent: top
+    accent: bottom
+
+
+red
+    f83f23
+    fd2967
+    ba00ff
+    ff00d8
+
+orange:
+    f69a17
+    fd5a28
+    ffd800
+    14ae17
+
+yellow:
+    d9f617
+    fda528
+    50ff5c
+    00c105
+
+green:
+    17f6b4
+    aafd28
+    00cfdc
+    00b779
+
+blue:
+    17aaf6
+    28fdb9
+    ff5ffd
+    0088c1
+
+purple:
+    f617a5
+    8c28fd
+    00e4ff
+    427ee2
+
+accent
+    full white
+
+
+player_decal:
+    b8b8b8
+    4d4d4d
