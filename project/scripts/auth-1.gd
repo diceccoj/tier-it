@@ -1,6 +1,6 @@
 extends Node
 
-var webApiKey : String = "insert_here"
+var webApiKey : String = "insert_key"
 var loginUrl : String = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + webApiKey
 var signupUrl  : String = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="           + webApiKey
 var action : int = 0 #0 - nothing, 1 - login, 2 - register
