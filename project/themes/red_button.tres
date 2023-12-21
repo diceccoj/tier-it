@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bb14jpmq3rnmf"]
+
+[ext_resource type="Texture2D" uid="uid://c3n7tlcbc7pbf" path="res://images/ui/red_button.png" id="1_0jq4e"]
+[ext_resource type="FontFile" uid="uid://b2dee8vg1lqv" path="res://fonts/LilitaOne-Regular.ttf" id="1_in01i"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ptfr2"]
+texture = ExtResource("1_0jq4e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wbmko"]
+texture = ExtResource("1_0jq4e")
+modulate_color = Color(0.863684, 0.856679, 0.830442, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rnxyk"]
+texture = ExtResource("1_0jq4e")
+modulate_color = Color(0.341176, 0.341176, 0.341176, 1)
+
+[resource]
+Button/font_sizes/font_size = 41
+Button/fonts/font = ExtResource("1_in01i")
+Button/styles/hover = SubResource("StyleBoxTexture_ptfr2")
+Button/styles/normal = SubResource("StyleBoxTexture_wbmko")
+Button/styles/pressed = SubResource("StyleBoxTexture_rnxyk")

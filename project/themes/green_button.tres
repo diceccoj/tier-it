@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://b8pd42bnktgig"]
+
+[ext_resource type="Texture2D" uid="uid://cgb7wqnhrg6sf" path="res://images/ui/green_button.png" id="1_ssvpr"]
+[ext_resource type="FontFile" uid="uid://b2dee8vg1lqv" path="res://fonts/LilitaOne-Regular.ttf" id="1_tdycf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x4kmx"]
+texture = ExtResource("1_ssvpr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bnpg1"]
+texture = ExtResource("1_ssvpr")
+modulate_color = Color(0.913725, 0.913725, 0.913725, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4snja"]
+texture = ExtResource("1_ssvpr")
+modulate_color = Color(0.454902, 0.454902, 0.454902, 1)
+
+[resource]
+Button/font_sizes/font_size = 41
+Button/font_sizes/outline_size = 4
+Button/fonts/font = ExtResource("1_tdycf")
+Button/styles/hover = SubResource("StyleBoxTexture_x4kmx")
+Button/styles/normal = SubResource("StyleBoxTexture_bnpg1")
+Button/styles/pressed = SubResource("StyleBoxTexture_4snja")

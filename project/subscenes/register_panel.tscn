@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=3 uid="uid://eo2n4iq0j2oc"]
+
+[ext_resource type="FontFile" uid="uid://b2dee8vg1lqv" path="res://fonts/LilitaOne-Regular.ttf" id="1_ck7w3"]
+[ext_resource type="StyleBox" uid="uid://bwsva0drgc1qm" path="res://themes/grey_box.tres" id="2_supf4"]
+[ext_resource type="PackedScene" uid="uid://dsck7ampi6v8h" path="res://subscenes/buttons/close_button.tscn" id="3_n77as"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_o6yic"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_laxop"]
+bg_color = Color(0.898039, 0.509804, 0.309804, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 10
+
+[node name="Panel" type="Panel"]
+offset_left = -536.0
+offset_top = -290.0
+offset_right = 534.0
+offset_bottom = 282.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_laxop")
+
+[node name="REmail" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 130.0
+offset_right = 816.0
+offset_bottom = 203.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_ck7w3")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = ExtResource("2_supf4")
+placeholder_text = "Email"
+alignment = 1
+
+[node name="RPassword" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 229.0
+offset_right = 816.0
+offset_bottom = 302.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_ck7w3")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = ExtResource("2_supf4")
+placeholder_text = "Password"
+alignment = 1
+secret = true
+
+[node name="RPasswordConfirm" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 330.0
+offset_right = 816.0
+offset_bottom = 403.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_ck7w3")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = ExtResource("2_supf4")
+placeholder_text = "Confirm Password"
+alignment = 1
+secret = true
+
+[node name="Close" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("3_n77as")]
+layout_mode = 1
+offset_left = 216.0
+offset_top = -261.0
+offset_right = 456.0
+offset_bottom = -194.0
+_theme = ExtResource("4_o6yic")
+parent = NodePath("..")
+
+[node name="ErrorMessage" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -279.0
+offset_top = 130.0
+offset_right = 281.0
+offset_bottom = 263.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.796078, 0.0862745, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_ck7w3")
+theme_override_font_sizes/font_size = 41
+horizontal_alignment = 1
+autowrap_mode = 3

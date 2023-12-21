@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://crgfffx36nxis"]
+[gd_scene load_steps=13 format=3 uid="uid://crgfffx36nxis"]
 
-[ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="1_4ijx7"]
 [ext_resource type="Texture2D" uid="uid://byxnljmstherx" path="res://images/tier list/red square.png" id="1_aljwd"]
-[ext_resource type="Script" path="res://scripts/tier_manager.gd" id="1_oeduq"]
+[ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="1_orgw7"]
 [ext_resource type="FontFile" uid="uid://b2dee8vg1lqv" path="res://fonts/LilitaOne-Regular.ttf" id="3_td5dc"]
 [ext_resource type="PackedScene" uid="uid://k84dmu6sgk08" path="res://subscenes/tier_panel.tscn" id="4_0rr6b"]
 [ext_resource type="Texture2D" uid="uid://hnabb7dasmjk" path="res://images/tier list/orange_square.png" id="4_trhuc"]
@@ -10,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dl37ijh7xjikt" path="res://images/tier list/green_square.png" id="6_kle37"]
 [ext_resource type="Texture2D" uid="uid://b7u2jge71hktk" path="res://images/tier list/blue_square.png" id="7_oyobv"]
 [ext_resource type="Texture2D" uid="uid://b6kbmqsluqf0x" path="res://images/tier list/purple_square.png" id="8_q2g50"]
+[ext_resource type="PackedScene" uid="uid://c7mvib01non2x" path="res://subscenes/buttons/scene_change_button.tscn" id="10_medso"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="11_wg3gk"]
 
 [sub_resource type="GDScript" id="GDScript_63u7p"]
 
@@ -20,7 +21,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_oeduq")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -29,13 +29,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -845.0
-offset_top = -507.0
-offset_right = 932.0
-offset_bottom = 500.0
+offset_left = -578.0
+offset_top = -327.5
+offset_right = 578.0
+offset_bottom = 327.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_4ijx7")
+texture = ExtResource("1_orgw7")
 expand_mode = 1
 
 [node name="TierList" type="VBoxContainer" parent="."]
@@ -222,6 +222,16 @@ vertical_alignment = 1
 [node name="TierPanel" parent="TierList/F-Tier" instance=ExtResource("4_0rr6b")]
 layout_mode = 2
 script = SubResource("GDScript_63u7p")
+
+[node name="BackButton" parent="." instance=ExtResource("10_medso")]
+layout_mode = 1
+offset_left = -540.0
+offset_top = -309.0
+offset_right = -298.0
+offset_bottom = -244.0
+pivot_offset = Vector2(121, 32)
+text = "Back"
+_theme = ExtResource("11_wg3gk")
 
 [editable path="TierList/S-Tier/TierPanel"]
 [editable path="TierList/A-Tier/TierPanel"]
