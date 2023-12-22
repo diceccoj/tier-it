@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bpxm5dp6vvt63"]
 
-[ext_resource type="Script" path="res://scripts/ui/scene_change_button.gd" id="1_41dse"]
+[ext_resource type="Script" path="res://subscenes/buttons/scene_change_button.gd" id="1_41dse"]
 [ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="2_0oehn"]
 [ext_resource type="AudioStream" uid="uid://dskf8sl3hx0vb" path="res://sounds/button_click.mp3" id="2_s2glf"]
 

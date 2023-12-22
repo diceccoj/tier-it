@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7mvib01non2x"]
 
-[ext_resource type="Script" path="res://scripts/ui/scene_change_button.gd" id="1_i2ip6"]
+[ext_resource type="Script" path="res://subscenes/buttons/scene_change_button.gd" id="1_i2ip6"]
 [ext_resource type="AudioStream" uid="uid://dskf8sl3hx0vb" path="res://sounds/button_click.mp3" id="2_kf6qu"]
 
 [node name="SceneChangeButton" type="Button"]

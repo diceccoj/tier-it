@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://cxudsj4qf7rq8"]
 
-[ext_resource type="Script" path="res://scripts/auth.gd" id="1_km06n"]
+[ext_resource type="Script" path="res://scenes/register.gd" id="1_mnflq"]
 [ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="2_y2iqy"]
 [ext_resource type="PackedScene" uid="uid://c7mvib01non2x" path="res://subscenes/buttons/scene_change_button.tscn" id="3_camu5"]
 [ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_qqo6k"]
 [ext_resource type="FontFile" uid="uid://b2dee8vg1lqv" path="res://fonts/LilitaOne-Regular.ttf" id="5_1g0ud"]
 [ext_resource type="StyleBox" uid="uid://bwsva0drgc1qm" path="res://themes/grey_box.tres" id="6_x32u7"]
-[ext_resource type="PackedScene" uid="uid://ovea5mti5n0o" path="res://subscenes/buttons/login_button.tscn" id="7_y5gas"]
+[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://subscenes/buttons/blank_button.tscn" id="7_cglyt"]
 [ext_resource type="Theme" uid="uid://carp04g3afhlg" path="res://themes/purple_button.tres" id="8_cxxrw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jnl7"]
@@ -31,7 +31,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_km06n")
+script = ExtResource("1_mnflq")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -73,21 +73,25 @@ theme_override_styles/normal = ExtResource("6_x32u7")
 placeholder_text = "Email"
 alignment = 1
 
-[node name="Register" parent="." instance=ExtResource("7_y5gas")]
-layout_mode = 1
-offset_left = 170.0
-offset_top = 17.0
-offset_right = 450.0
-offset_bottom = 95.0
-text = "Register"
-_theme = ExtResource("8_cxxrw")
+[node name="Username" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = -473.0
+offset_top = -65.0
+offset_right = 87.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_1g0ud")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = ExtResource("6_x32u7")
+placeholder_text = "Username"
+alignment = 1
 
 [node name="Password" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = -473.0
-offset_top = -76.0
+offset_top = 37.0
 offset_right = 87.0
-offset_bottom = -3.0
+offset_bottom = 110.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_1g0ud")
 theme_override_font_sizes/font_size = 38
@@ -99,9 +103,9 @@ secret = true
 [node name="ConfirmPassword" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = -473.0
-offset_top = 17.0
+offset_top = 139.0
 offset_right = 87.0
-offset_bottom = 90.0
+offset_bottom = 212.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_1g0ud")
 theme_override_font_sizes/font_size = 38
@@ -110,7 +114,14 @@ placeholder_text = "Confirm Password"
 alignment = 1
 secret = true
 
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
+[node name="Register" parent="." instance=ExtResource("7_cglyt")]
+layout_mode = 1
+offset_left = 173.0
+offset_top = -65.0
+offset_right = 453.0
+offset_bottom = 13.0
+text = "Register"
+_theme = ExtResource("8_cxxrw")
 
 [node name="ErrorMessage" type="Label" parent="."]
 layout_mode = 1
@@ -119,10 +130,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -473.0
-offset_top = 135.0
-offset_right = 87.0
-offset_bottom = 268.0
+offset_left = 121.0
+offset_top = 120.0
+offset_right = 496.0
+offset_bottom = 273.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.686275, 0.027451, 0, 1)
@@ -132,6 +143,8 @@ theme_override_fonts/font = ExtResource("5_1g0ud")
 theme_override_font_sizes/font_size = 41
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [connection signal="pressed" from="Register" to="." method="_on_register_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
