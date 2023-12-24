@@ -1,8 +1,8 @@
 extends Control
 
 @onready var http = $HTTPRequest
-@onready var username = $Username
 @onready var email = $Email
+@onready var username = $Username
 @onready var password = $Password
 @onready var confirm_password = $ConfirmPassword
 @onready var error_message = $ErrorMessage
@@ -22,4 +22,6 @@ func _on_register_pressed():
 	if (password.text != confirm_password.text):
 		error_message.text = "Confirmed Password Doesn't Match"
 		return
+	elif (len(username.text) < 9):
+		error_message.text = "Username Can't be more than 9 characters"
 	Firebase.signup(email.text, password.text, http)

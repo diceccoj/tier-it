@@ -15,6 +15,8 @@ texture = ExtResource("1_3dgeb")
 modulate_color = Color(0.415686, 0.415686, 0.415686, 1)
 
 [resource]
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 7
 Button/font_sizes/font_size = 41
 Button/fonts/font = ExtResource("1_5hgi8")
 Button/styles/hover = SubResource("StyleBoxTexture_eyo3y")
