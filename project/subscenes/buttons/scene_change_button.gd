@@ -8,7 +8,8 @@ extends Button
 
 
 func _ready():
-	theme = _theme
+	if (_theme != null):
+		theme = _theme
 	
 
 

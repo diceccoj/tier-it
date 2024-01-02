@@ -1,0 +1,116 @@
+[gd_scene load_steps=11 format=3 uid="uid://c0f6kuyyhq705"]
+
+[ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="1_j217u"]
+[ext_resource type="StyleBox" uid="uid://bwsva0drgc1qm" path="res://themes/grey_box.tres" id="2_4myyl"]
+[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://subscenes/buttons/blank_button.tscn" id="3_ufuqu"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_2dc05"]
+[ext_resource type="Theme" uid="uid://b8pd42bnktgig" path="res://themes/green_button.tres" id="5_ll6dv"]
+[ext_resource type="Theme" uid="uid://carp04g3afhlg" path="res://themes/purple_button.tres" id="6_m0kjq"]
+[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="7_1duuy"]
+[ext_resource type="PackedScene" uid="uid://bpxm5dp6vvt63" path="res://subscenes/buttons/back_button.tscn" id="7_fnldl"]
+[ext_resource type="PackedScene" uid="uid://curhbeokhtixw" path="res://subscenes/player_decal.tscn" id="9_6gev4"]
+[ext_resource type="PackedScene" uid="uid://c7mvib01non2x" path="res://subscenes/buttons/scene_change_button.tscn" id="10_758hh"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -327.5
+offset_right = 578.0
+offset_bottom = 327.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_j217u")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -543.0
+offset_top = -224.0
+offset_right = 262.0
+offset_bottom = 300.0
+theme_override_constants/separation = 10
+
+[node name="RoomPanel" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_4myyl")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/RoomPanel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 8.0
+offset_right = 767.0
+offset_bottom = 515.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/RoomPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 20
+
+[node name="Buttons" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="Add" parent="HBoxContainer/Buttons" instance=ExtResource("3_ufuqu")]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+text = "Add Room"
+_theme = ExtResource("4_2dc05")
+
+[node name="Create" parent="HBoxContainer/Buttons" instance=ExtResource("3_ufuqu")]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+text = "Create Room"
+_theme = ExtResource("5_ll6dv")
+
+[node name="Refresh" parent="HBoxContainer/Buttons" instance=ExtResource("3_ufuqu")]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+text = "Refresh"
+_theme = ExtResource("7_1duuy")
+
+[node name="Back" parent="." instance=ExtResource("7_fnldl")]
+layout_mode = 1
+offset_left = -560.0
+offset_top = -324.0
+offset_right = -252.0
+offset_bottom = -246.0
+text = "Return to Title"
+next_scene_path = "res://scenes/title_screen.tscn"
+
+[node name="Player" parent="." instance=ExtResource("9_6gev4")]
+layout_mode = 1
+offset_left = 402.0
+offset_top = 110.0
+offset_right = 402.0
+offset_bottom = 110.0
+scale = Vector2(2.75, 2.75)
+
+[node name="ChangeAvatar" parent="." instance=ExtResource("10_758hh")]
+layout_mode = 1
+offset_left = 267.0
+offset_top = 228.0
+offset_right = 537.0
+offset_bottom = 298.0
+theme_override_font_sizes/font_size = 21
+text = "Change
+Avatar"
+_theme = ExtResource("6_m0kjq")
+next_scene_path = "res://scenes/create_avatar.tscn"
