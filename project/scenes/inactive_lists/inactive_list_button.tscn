@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://j2r0jvcgy3cr"]
+
+[ext_resource type="Theme" uid="uid://uogdlgrk3us3" path="res://themes/flexi_button_purple.tres" id="1_8mhy6"]
+[ext_resource type="Script" path="res://scenes/inactive_lists/inactive_list_button.gd" id="2_nwn1g"]
+[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="3_7jrfq"]
+[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="4_evwkr"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="6_u0yat"]
+
+[node name="Room" type="Button"]
+custom_minimum_size = Vector2(950, 80)
+theme = ExtResource("1_8mhy6")
+script = ExtResource("2_nwn1g")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 9.0
+offset_right = 700.0
+offset_bottom = 72.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(670.71, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_7jrfq")
+theme_override_font_sizes/font_size = 21
+text = "Question"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Delete" parent="HBoxContainer" instance=ExtResource("4_evwkr")]
+visible = false
+custom_minimum_size = Vector2(249.03, 0)
+layout_mode = 2
+theme = ExtResource("6_u0yat")
+text = "Delete"
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/Delete" to="." method="_on_delete_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/Delete" to="." method="_on_delete_mouse_exited"]
+[connection signal="pressed" from="HBoxContainer/Delete" to="." method="_on_delete_pressed"]

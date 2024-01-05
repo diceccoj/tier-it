@@ -1,0 +1,253 @@
+[gd_scene load_steps=13 format=3 uid="uid://crgfffx36nxis"]
+
+[ext_resource type="Texture2D" uid="uid://byxnljmstherx" path="res://images/tier list/red square.png" id="1_aljwd"]
+[ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="1_orgw7"]
+[ext_resource type="FontFile" uid="uid://b2dee8vg1lqv" path="res://fonts/LilitaOne-Regular.ttf" id="3_td5dc"]
+[ext_resource type="PackedScene" uid="uid://k84dmu6sgk08" path="res://scenes/tier_list/tier_panel.tscn" id="4_0rr6b"]
+[ext_resource type="Texture2D" uid="uid://hnabb7dasmjk" path="res://images/tier list/orange_square.png" id="4_trhuc"]
+[ext_resource type="Texture2D" uid="uid://ch08yq0xx8477" path="res://images/tier list/yellow_square.png" id="5_e16ew"]
+[ext_resource type="Texture2D" uid="uid://dl37ijh7xjikt" path="res://images/tier list/green_square.png" id="6_kle37"]
+[ext_resource type="Texture2D" uid="uid://b7u2jge71hktk" path="res://images/tier list/blue_square.png" id="7_oyobv"]
+[ext_resource type="Texture2D" uid="uid://b6kbmqsluqf0x" path="res://images/tier list/purple_square.png" id="8_q2g50"]
+[ext_resource type="PackedScene" uid="uid://c7mvib01non2x" path="res://scenes/other/buttons/scene_change_button.tscn" id="10_medso"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="11_wg3gk"]
+
+[sub_resource type="GDScript" id="GDScript_63u7p"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -327.5
+offset_right = 578.0
+offset_bottom = 327.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_orgw7")
+expand_mode = 1
+
+[node name="TierList" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -218.0
+offset_right = 540.0
+offset_bottom = 292.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="S-Tier" type="HBoxContainer" parent="TierList"]
+custom_minimum_size = Vector2(100, 80)
+layout_direction = 2
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TierLabel" type="TextureRect" parent="TierList/S-Tier"]
+z_as_relative = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.64
+texture = ExtResource("1_aljwd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="TierList/S-Tier/TierLabel"]
+layout_mode = 0
+offset_right = 79.0
+offset_bottom = 76.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_td5dc")
+theme_override_font_sizes/font_size = 40
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TierPanel" parent="TierList/S-Tier" instance=ExtResource("4_0rr6b")]
+layout_mode = 2
+
+[node name="A-Tier" type="HBoxContainer" parent="TierList"]
+custom_minimum_size = Vector2(100, 80)
+layout_direction = 2
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TierLabel" type="TextureRect" parent="TierList/A-Tier"]
+z_as_relative = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.64
+texture = ExtResource("4_trhuc")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="TierList/A-Tier/TierLabel"]
+layout_mode = 0
+offset_right = 79.0
+offset_bottom = 76.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_td5dc")
+theme_override_font_sizes/font_size = 40
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TierPanel" parent="TierList/A-Tier" instance=ExtResource("4_0rr6b")]
+layout_mode = 2
+
+[node name="B-Tier" type="HBoxContainer" parent="TierList"]
+custom_minimum_size = Vector2(100, 80)
+layout_direction = 2
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TierLabel" type="TextureRect" parent="TierList/B-Tier"]
+z_as_relative = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.64
+texture = ExtResource("5_e16ew")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="TierList/B-Tier/TierLabel"]
+layout_mode = 0
+offset_right = 79.0
+offset_bottom = 76.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_td5dc")
+theme_override_font_sizes/font_size = 40
+text = "B"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TierPanel" parent="TierList/B-Tier" instance=ExtResource("4_0rr6b")]
+layout_mode = 2
+
+[node name="C-Tier" type="HBoxContainer" parent="TierList"]
+custom_minimum_size = Vector2(100, 80)
+layout_direction = 2
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TierLabel" type="TextureRect" parent="TierList/C-Tier"]
+z_as_relative = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.64
+texture = ExtResource("6_kle37")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="TierList/C-Tier/TierLabel"]
+layout_mode = 0
+offset_right = 79.0
+offset_bottom = 76.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_td5dc")
+theme_override_font_sizes/font_size = 40
+text = "C"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TierPanel" parent="TierList/C-Tier" instance=ExtResource("4_0rr6b")]
+layout_mode = 2
+
+[node name="D-Tier" type="HBoxContainer" parent="TierList"]
+custom_minimum_size = Vector2(100, 80)
+layout_direction = 2
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TierLabel" type="TextureRect" parent="TierList/D-Tier"]
+z_as_relative = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.64
+texture = ExtResource("7_oyobv")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="TierList/D-Tier/TierLabel"]
+layout_mode = 0
+offset_right = 79.0
+offset_bottom = 76.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_td5dc")
+theme_override_font_sizes/font_size = 40
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TierPanel" parent="TierList/D-Tier" instance=ExtResource("4_0rr6b")]
+layout_mode = 2
+script = SubResource("GDScript_63u7p")
+
+[node name="F-Tier" type="HBoxContainer" parent="TierList"]
+custom_minimum_size = Vector2(100, 80)
+layout_direction = 2
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TierLabel" type="TextureRect" parent="TierList/F-Tier"]
+z_as_relative = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.64
+texture = ExtResource("8_q2g50")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="TierList/F-Tier/TierLabel"]
+layout_mode = 0
+offset_right = 79.0
+offset_bottom = 76.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_td5dc")
+theme_override_font_sizes/font_size = 40
+text = "F"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TierPanel" parent="TierList/F-Tier" instance=ExtResource("4_0rr6b")]
+layout_mode = 2
+script = SubResource("GDScript_63u7p")
+
+[node name="BackButton" parent="." instance=ExtResource("10_medso")]
+layout_mode = 1
+offset_left = -540.0
+offset_top = -309.0
+offset_right = -298.0
+offset_bottom = -244.0
+pivot_offset = Vector2(121, 32)
+text = "Back"
+_theme = ExtResource("11_wg3gk")
+
+[editable path="TierList/S-Tier/TierPanel"]
+[editable path="TierList/A-Tier/TierPanel"]
+[editable path="TierList/B-Tier/TierPanel"]
+[editable path="TierList/C-Tier/TierPanel"]
+[editable path="TierList/D-Tier/TierPanel"]
+[editable path="TierList/F-Tier/TierPanel"]

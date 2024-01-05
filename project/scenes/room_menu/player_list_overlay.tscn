@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://bahrec7fcevg2"]
+
+[ext_resource type="Script" path="res://scenes/other/overlay.gd" id="1_fwhaf"]
+[ext_resource type="Theme" uid="uid://ciqqitidtu2dc" path="res://themes/flexi_button_blue_shadow.tres" id="2_f6far"]
+[ext_resource type="Script" path="res://scenes/room_menu/player_list_overlay.gd" id="3_56ifg"]
+[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="3_ku74j"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_g6rh7"]
+[ext_resource type="PackedScene" uid="uid://d4i4ekipbw121" path="res://scenes/room_menu/player_decal_button.tscn" id="6_u22k5"]
+
+[node name="Overlay" type="ColorRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -327.5
+offset_right = 578.0
+offset_bottom = 327.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(578, 327)
+color = Color(0, 0, 0, 0.313726)
+script = ExtResource("1_fwhaf")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -548.5
+offset_top = -306.0
+offset_right = 548.5
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(548, 306)
+theme = ExtResource("2_f6far")
+script = ExtResource("3_56ifg")
+
+[node name="CloseButton" parent="Panel" instance=ExtResource("3_ku74j")]
+layout_mode = 1
+offset_left = -532.5
+offset_top = -285.0
+offset_right = -296.5
+offset_bottom = -220.0
+theme = ExtResource("4_g6rh7")
+text = "Close"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 42.5
+offset_right = 688.0
+offset_bottom = 116.5
+theme = ExtResource("2_f6far")
+text = "Players"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Players" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 169.0
+offset_right = 736.0
+offset_bottom = 455.0
+scale = Vector2(1.5, 1.5)
+theme_override_constants/h_separation = 90
+theme_override_constants/v_separation = 80
+columns = 8
+
+[node name="PlayerDecalButton" parent="Players" instance=ExtResource("6_u22k5")]
+layout_mode = 2
+
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="finished" from="Panel/CloseButton/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+
+[editable path="Panel/CloseButton"]

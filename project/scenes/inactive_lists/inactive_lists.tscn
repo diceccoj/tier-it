@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://cuopwjdvw5tnj"]
+
+[ext_resource type="Script" path="res://scenes/inactive_lists/inactive_lists.gd" id="1_l75hi"]
+[ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="2_kew80"]
+[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="3_1de75"]
+[ext_resource type="PackedScene" uid="uid://bpxm5dp6vvt63" path="res://scenes/other/buttons/back_button.tscn" id="4_qq2ai"]
+[ext_resource type="StyleBox" uid="uid://bwsva0drgc1qm" path="res://themes/grey_box.tres" id="5_rp2yy"]
+[ext_resource type="PackedScene" uid="uid://j2r0jvcgy3cr" path="res://scenes/inactive_lists/inactive_list_button.tscn" id="6_ujnbr"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("1_l75hi")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -327.5
+offset_right = 578.0
+offset_bottom = 327.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kew80")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -249.0
+offset_top = -304.0
+offset_right = 252.0
+offset_bottom = -227.0
+theme = ExtResource("3_1de75")
+text = "Inactive Lists"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" parent="." instance=ExtResource("4_qq2ai")]
+layout_mode = 1
+offset_left = -559.0
+offset_top = -316.0
+offset_right = -279.0
+offset_bottom = -238.0
+next_scene_path = "res://scenes/room_menu/room_menu.tscn"
+
+[node name="RoomPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 0
+offset_left = -513.0
+offset_top = -227.0
+offset_right = 500.0
+offset_bottom = 306.0
+theme_override_styles/panel = ExtResource("5_rp2yy")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="RoomPanel"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 19.0
+offset_right = 988.0
+offset_bottom = 515.0
+
+[node name="Lists" type="VBoxContainer" parent="RoomPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Room" parent="RoomPanel/ScrollContainer/Lists" instance=ExtResource("6_ujnbr")]
+layout_mode = 2
+
+[node name="Room2" parent="RoomPanel/ScrollContainer/Lists" instance=ExtResource("6_ujnbr")]
+layout_mode = 2
+
+[node name="Room3" parent="RoomPanel/ScrollContainer/Lists" instance=ExtResource("6_ujnbr")]
+layout_mode = 2
+
+[node name="Room4" parent="RoomPanel/ScrollContainer/Lists" instance=ExtResource("6_ujnbr")]
+layout_mode = 2
+
+[node name="Room5" parent="RoomPanel/ScrollContainer/Lists" instance=ExtResource("6_ujnbr")]
+layout_mode = 2
+
+[node name="Room6" parent="RoomPanel/ScrollContainer/Lists" instance=ExtResource("6_ujnbr")]
+layout_mode = 2

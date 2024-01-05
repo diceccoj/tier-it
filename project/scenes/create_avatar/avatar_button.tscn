@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://c67mlmnssmqmy"]
+
+[ext_resource type="Texture2D" uid="uid://djalobya6i0io" path="res://images/tier list/avatar/Layer 1.png" id="1_e3rs8"]
+[ext_resource type="Script" path="res://scenes/create_avatar/avatar_button.gd" id="2_bosb1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6sc34"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ahj8y"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_to0bn"]
+texture = SubResource("CanvasTexture_ahj8y")
+modulate_color = Color(1, 1, 1, 0.521569)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vuq6j"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dlx8l"]
+texture = SubResource("CanvasTexture_vuq6j")
+modulate_color = Color(0.388235, 0.388235, 0.388235, 0.54902)
+
+[node name="AvatarButton" type="TextureRect"]
+custom_minimum_size = Vector2(50, 50)
+texture = ExtResource("1_e3rs8")
+expand_mode = 1
+script = ExtResource("2_bosb1")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_6sc34")
+theme_override_styles/hover = SubResource("StyleBoxTexture_to0bn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dlx8l")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

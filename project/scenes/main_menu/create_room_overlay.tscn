@@ -1,0 +1,163 @@
+[gd_scene load_steps=10 format=3 uid="uid://n57hay3cdsnj"]
+
+[ext_resource type="Script" path="res://scenes/other/overlay.gd" id="1_63qg1"]
+[ext_resource type="Theme" uid="uid://doxhakuvlogxj" path="res://themes/flexi_button_orange_shadow.tres" id="2_gqo7q"]
+[ext_resource type="Script" path="res://scenes/main_menu/add_room_overlay.gd" id="3_3510k"]
+[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="4_q1dnf"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="5_xxu44"]
+[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="6_phseb"]
+[ext_resource type="FontFile" uid="uid://b2dee8vg1lqv" path="res://fonts/LilitaOne-Regular.ttf" id="7_ulthj"]
+[ext_resource type="StyleBox" uid="uid://bwsva0drgc1qm" path="res://themes/grey_box.tres" id="8_2aa78"]
+[ext_resource type="Theme" uid="uid://b8pd42bnktgig" path="res://themes/green_button.tres" id="9_35v7d"]
+
+[node name="Overlay" type="ColorRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -327.5
+offset_right = 578.0
+offset_bottom = 327.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(578, 327)
+color = Color(0, 0, 0, 0.313726)
+script = ExtResource("1_63qg1")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -548.5
+offset_top = -306.0
+offset_right = 548.5
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(548, 306)
+theme = ExtResource("2_gqo7q")
+script = ExtResource("3_3510k")
+
+[node name="CloseButton" parent="Panel" instance=ExtResource("4_q1dnf")]
+layout_mode = 1
+offset_left = -532.5
+offset_top = -285.0
+offset_right = -296.5
+offset_bottom = -220.0
+theme = ExtResource("5_xxu44")
+text = "Close"
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.0
+offset_top = -204.0
+offset_right = 248.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_phseb")
+text = "Put room name here:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Room Name" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -124.0
+offset_right = 280.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_ulthj")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = ExtResource("8_2aa78")
+placeholder_text = "Room Name"
+alignment = 1
+
+[node name="RoomCodeLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -376.0
+offset_top = -28.0
+offset_right = 377.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_phseb")
+text = "Your Room Code to share with your friends!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RoomCode" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = 44.0
+offset_right = 280.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_ulthj")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/read_only = ExtResource("8_2aa78")
+placeholder_text = "Room Code"
+alignment = 1
+editable = false
+
+[node name="Submit" parent="." instance=ExtResource("4_q1dnf")]
+layout_mode = 1
+offset_left = 200.0
+offset_top = 180.0
+offset_right = 480.0
+offset_bottom = 258.0
+text = "Submit"
+_theme = ExtResource("9_35v7d")
+
+[node name="ErrorMessage" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = 132.5
+offset_right = 384.0
+offset_bottom = 268.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_phseb")
+theme_override_colors/font_color = Color(0.807843, 0, 0.00392157, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="finished" from="Panel/CloseButton/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="pressed" from="Submit" to="Panel" method="_on_submit_pressed"]
+
+[editable path="Panel/CloseButton"]

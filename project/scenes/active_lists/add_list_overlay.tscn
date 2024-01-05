@@ -1,0 +1,129 @@
+[gd_scene load_steps=11 format=3 uid="uid://c5pq2d7tfrqqc"]
+
+[ext_resource type="Script" path="res://scenes/other/overlay.gd" id="1_id6r0"]
+[ext_resource type="Theme" uid="uid://doxhakuvlogxj" path="res://themes/flexi_button_orange_shadow.tres" id="2_bnpq5"]
+[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="3_ip8jo"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_tt5cw"]
+[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="5_o78bp"]
+[ext_resource type="FontFile" uid="uid://b2dee8vg1lqv" path="res://fonts/LilitaOne-Regular.ttf" id="6_6wcb1"]
+[ext_resource type="StyleBox" uid="uid://bwsva0drgc1qm" path="res://themes/grey_box.tres" id="7_vepha"]
+[ext_resource type="Script" path="res://scenes/active_lists/add_list_overlay.gd" id="8_g6avp"]
+[ext_resource type="Theme" uid="uid://carp04g3afhlg" path="res://themes/purple_button.tres" id="9_m8u75"]
+[ext_resource type="Theme" uid="uid://b8pd42bnktgig" path="res://themes/green_button.tres" id="10_eyysx"]
+
+[node name="Overlay" type="ColorRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -327.5
+offset_right = 578.0
+offset_bottom = 327.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(578, 327)
+color = Color(0, 0, 0, 0.313726)
+script = ExtResource("1_id6r0")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -548.5
+offset_top = -306.0
+offset_right = 548.5
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(548, 306)
+theme = ExtResource("2_bnpq5")
+
+[node name="CloseButton" parent="Panel" instance=ExtResource("3_ip8jo")]
+layout_mode = 1
+offset_left = -532.5
+offset_top = -285.0
+offset_right = -296.5
+offset_bottom = -220.0
+theme = ExtResource("4_tt5cw")
+text = "Close"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 182.5
+offset_right = 817.0
+offset_bottom = 259.5
+theme = ExtResource("5_o78bp")
+text = "What will the question be?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuestionField" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 285.0
+offset_right = 934.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_6wcb1")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = ExtResource("7_vepha")
+placeholder_text = "Question: 60 chars"
+alignment = 1
+max_length = 60
+script = ExtResource("8_g6avp")
+
+[node name="Random" parent="." instance=ExtResource("3_ip8jo")]
+layout_mode = 1
+offset_left = -402.0
+offset_top = 48.0
+offset_right = -122.0
+offset_bottom = 126.0
+text = "Random"
+_theme = ExtResource("9_m8u75")
+
+[node name="Create" parent="." instance=ExtResource("3_ip8jo")]
+layout_mode = 1
+offset_left = 78.0
+offset_top = 48.0
+offset_right = 358.0
+offset_bottom = 126.0
+theme_override_font_sizes/font_size = 21
+text = "Create 
+& Vote"
+_theme = ExtResource("10_eyysx")
+
+[node name="ErrorMessage" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -262.0
+offset_top = 162.5
+offset_right = 223.0
+offset_bottom = 279.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.686275, 0.027451, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("6_6wcb1")
+theme_override_font_sizes/font_size = 41
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="finished" from="Panel/CloseButton/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="text_changed" from="QuestionField" to="QuestionField" method="_on_text_changed"]
+[connection signal="mouse_entered" from="Random" to="QuestionField" method="_on_random_mouse_entered"]
+[connection signal="pressed" from="Random" to="Panel/CloseButton" method="_on_random_pressed"]
+[connection signal="pressed" from="Random" to="QuestionField" method="_on_random_pressed"]
+
+[editable path="Panel/CloseButton"]

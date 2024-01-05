@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://b24fto30iner0"]
+
+[ext_resource type="Script" path="res://scenes/other/overlay.gd" id="1_823r7"]
+[ext_resource type="Theme" uid="uid://doxhakuvlogxj" path="res://themes/flexi_button_orange_shadow.tres" id="2_6hych"]
+[ext_resource type="Script" path="res://scenes/active_lists/deactivate_list_overlay.gd" id="3_5kko3"]
+[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="3_vw1tb"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_jnrl2"]
+[ext_resource type="Theme" uid="uid://b8pd42bnktgig" path="res://themes/green_button.tres" id="5_sl0cu"]
+[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="6_mnxr5"]
+
+[node name="Overlay" type="ColorRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -327.5
+offset_right = 578.0
+offset_bottom = 327.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(578, 327)
+color = Color(0, 0, 0, 0.313726)
+script = ExtResource("1_823r7")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -548.5
+offset_top = -306.0
+offset_right = 548.5
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(548, 306)
+theme = ExtResource("2_6hych")
+script = ExtResource("3_5kko3")
+
+[node name="CloseButton" parent="Panel" instance=ExtResource("3_vw1tb")]
+layout_mode = 1
+offset_left = -276.0
+offset_top = 41.0
+offset_right = -40.0
+offset_bottom = 106.0
+theme = ExtResource("4_jnrl2")
+text = "No"
+
+[node name="Yes" parent="Panel" instance=ExtResource("3_vw1tb")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 41.0
+offset_right = 276.0
+offset_bottom = 106.0
+theme = ExtResource("5_sl0cu")
+text = "Yes"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 177.5
+offset_right = 971.0
+offset_bottom = 344.5
+theme = ExtResource("6_mnxr5")
+text = "Are you sure you want to deactivate the list?
+The list CANNOT be reactivated!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="finished" from="Panel/CloseButton/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+
+[editable path="Panel/CloseButton"]

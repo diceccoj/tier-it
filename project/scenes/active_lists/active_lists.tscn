@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=3 uid="uid://boglus3lushio"]
+
+[ext_resource type="Script" path="res://scenes/active_lists/active_lists.gd" id="1_mv30q"]
+[ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="1_s6knk"]
+[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="2_ub0o7"]
+[ext_resource type="PackedScene" uid="uid://bpxm5dp6vvt63" path="res://scenes/other/buttons/back_button.tscn" id="3_lf3cn"]
+[ext_resource type="StyleBox" uid="uid://bwsva0drgc1qm" path="res://themes/grey_box.tres" id="4_p5ky5"]
+[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="6_5tfg7"]
+[ext_resource type="Theme" uid="uid://b8pd42bnktgig" path="res://themes/green_button.tres" id="7_wghk3"]
+[ext_resource type="PackedScene" uid="uid://b8c486x6sosbd" path="res://scenes/active_lists/active_list_button.tscn" id="8_3dn8n"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("1_mv30q")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -327.5
+offset_right = 578.0
+offset_bottom = 327.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_s6knk")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -248.0
+offset_top = -316.0
+offset_right = 253.0
+offset_bottom = -239.0
+theme = ExtResource("2_ub0o7")
+text = "Active Lists"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" parent="." instance=ExtResource("3_lf3cn")]
+layout_mode = 1
+offset_left = -559.0
+offset_top = -316.0
+offset_right = -279.0
+offset_bottom = -238.0
+next_scene_path = "res://scenes/room_menu/room_menu.tscn"
+
+[node name="AddList" parent="." instance=ExtResource("6_5tfg7")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 274.0
+offset_top = -316.0
+offset_right = 554.0
+offset_bottom = -238.0
+grow_horizontal = 1
+grow_vertical = 1
+text = "Add List"
+_theme = ExtResource("7_wghk3")
+
+[node name="RoomPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 0
+offset_left = -504.0
+offset_top = -228.0
+offset_right = 509.0
+offset_bottom = 305.0
+theme_override_styles/panel = ExtResource("4_p5ky5")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="RoomPanel"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 19.0
+offset_right = 988.0
+offset_bottom = 515.0
+
+[node name="Lists" type="VBoxContainer" parent="RoomPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Room" parent="RoomPanel/ScrollContainer/Lists" instance=ExtResource("8_3dn8n")]
+layout_mode = 2
+
+[connection signal="pressed" from="AddList" to="." method="_on_add_list_pressed"]

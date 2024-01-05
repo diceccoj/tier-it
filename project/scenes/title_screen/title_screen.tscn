@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://ta6biglghnaw"]
+
+[ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="1_c7qo0"]
+[ext_resource type="PackedScene" uid="uid://c7mvib01non2x" path="res://scenes/other/buttons/scene_change_button.tscn" id="3_a5jxb"]
+[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="4_21jfm"]
+[ext_resource type="Theme" uid="uid://carp04g3afhlg" path="res://themes/purple_button.tres" id="4_oflay"]
+[ext_resource type="Texture2D" uid="uid://h88kwe84qvrk" path="res://images/ui/logo.png" id="5_7hban"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -577.0
+offset_top = -326.0
+offset_right = 579.0
+offset_bottom = 329.0
+texture = ExtResource("1_c7qo0")
+expand_mode = 1
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -216.0
+offset_top = -350.0
+offset_right = 216.0
+offset_bottom = 84.0
+texture = ExtResource("5_7hban")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Play" parent="." instance=ExtResource("3_a5jxb")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -140.0
+offset_top = 27.0
+offset_right = 140.0
+offset_bottom = 105.0
+grow_horizontal = 1
+grow_vertical = 1
+text = "Play"
+_theme = ExtResource("4_21jfm")
+next_scene_path = "res://scenes/login_register/login.tscn"
+
+[node name="Credits" parent="." instance=ExtResource("3_a5jxb")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -140.0
+offset_top = 126.0
+offset_right = 140.0
+offset_bottom = 204.0
+grow_horizontal = 1
+grow_vertical = 1
+text = "Credits"
+_theme = ExtResource("4_oflay")

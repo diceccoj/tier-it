@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://cf03bkfhqrivj"]
+
+[ext_resource type="Script" path="res://scenes/other/overlay.gd" id="1_4wnxa"]
+[ext_resource type="Theme" uid="uid://dlc5kr68nn45h" path="res://themes/flexi_button_purple_shadow.tres" id="2_14by2"]
+[ext_resource type="Script" path="res://scenes/room_menu/remove_player_overlay.gd" id="3_6enqu"]
+[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="4_fjov8"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="5_2exvp"]
+[ext_resource type="Theme" uid="uid://b8pd42bnktgig" path="res://themes/green_button.tres" id="6_fkxme"]
+[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="7_y3ny6"]
+
+[node name="Overlay" type="ColorRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -327.5
+offset_right = 578.0
+offset_bottom = 327.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(578, 327)
+color = Color(0, 0, 0, 0.313726)
+script = ExtResource("1_4wnxa")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -548.5
+offset_top = -306.0
+offset_right = 548.5
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(548, 306)
+theme = ExtResource("2_14by2")
+script = ExtResource("3_6enqu")
+
+[node name="CloseButton" parent="Panel" instance=ExtResource("4_fjov8")]
+layout_mode = 1
+offset_left = -276.0
+offset_top = 41.0
+offset_right = -40.0
+offset_bottom = 106.0
+theme = ExtResource("5_2exvp")
+text = "No"
+
+[node name="Yes" parent="Panel" instance=ExtResource("4_fjov8")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 41.0
+offset_right = 276.0
+offset_bottom = 106.0
+theme = ExtResource("6_fkxme")
+text = "Yes"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 177.5
+offset_right = 971.0
+offset_bottom = 344.5
+theme = ExtResource("7_y3ny6")
+text = "Are you sure you want to remove the
+player from the room?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="finished" from="Panel/CloseButton/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+
+[editable path="Panel/CloseButton"]
