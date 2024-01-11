@@ -147,5 +147,5 @@ autowrap_mode = 3
 [node name="CreateAccount" type="HTTPRequest" parent="."]
 
 [connection signal="pressed" from="Register" to="." method="_on_register_pressed"]
-[connection signal="request_completed" from="CreateAccount" to="." method="_on_http_request_request_completed"]
 [connection signal="request_completed" from="CreateAccount" to="." method="_on_create_account_request_completed"]
+[connection signal="request_completed" from="CreateAccount" to="." method="_on_http_request_request_completed"]
