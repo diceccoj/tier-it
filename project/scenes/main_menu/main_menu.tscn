@@ -121,5 +121,7 @@ Avatar"
 _theme = ExtResource("10_65rjr")
 next_scene_path = "res://scenes/create_avatar/create_avatar.tscn"
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [connection signal="pressed" from="HBoxContainer/Buttons/Add" to="." method="_on_add_pressed"]
 [connection signal="pressed" from="HBoxContainer/Buttons/Create" to="." method="_on_create_pressed"]

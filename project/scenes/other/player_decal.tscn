@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://curhbeokhtixw"]
+[gd_scene load_steps=6 format=3 uid="uid://curhbeokhtixw"]
 
 [ext_resource type="Script" path="res://scenes/other/player_decal.gd" id="1_nehfe"]
 [ext_resource type="Texture2D" uid="uid://djalobya6i0io" path="res://images/tier list/avatar/Layer 1.png" id="2_5eh5c"]
 [ext_resource type="Texture2D" uid="uid://b73og6lo2i4k7" path="res://images/tier list/avatar/player_decal.png" id="2_d5oty"]
 [ext_resource type="FontFile" uid="uid://b2dee8vg1lqv" path="res://fonts/LilitaOne-Regular.ttf" id="3_xlvbi"]
+[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="5_dwfrt"]
 
 [node name="Player" type="Control"]
 layout_mode = 3
@@ -70,6 +71,17 @@ text = "null"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
+
+[node name="PointCount" type="Label" parent="."]
+layout_mode = 0
+offset_left = -47.9999
+offset_top = -40.0
+offset_right = 48.0001
+offset_bottom = -8.99997
+theme = ExtResource("5_dwfrt")
+theme_override_font_sizes/font_size = 21
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

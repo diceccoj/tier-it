@@ -1,26 +1,12 @@
-[gd_scene load_steps=26 format=3 uid="uid://c6w68vflhfg61"]
+[gd_scene load_steps=12 format=3 uid="uid://c6w68vflhfg61"]
 
+[ext_resource type="Script" path="res://scenes/create_avatar/create_avatar.gd" id="1_o23bc"]
 [ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="1_r8cwk"]
 [ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="2_1u3ek"]
 [ext_resource type="PackedScene" uid="uid://bpxm5dp6vvt63" path="res://scenes/other/buttons/back_button.tscn" id="2_2lnts"]
 [ext_resource type="PackedScene" uid="uid://curhbeokhtixw" path="res://scenes/other/player_decal.tscn" id="3_ku8hf"]
 [ext_resource type="Script" path="res://scenes/create_avatar/color_picker.gd" id="4_aptbc"]
 [ext_resource type="PackedScene" uid="uid://c67mlmnssmqmy" path="res://scenes/create_avatar/avatar_button.tscn" id="4_s4eow"]
-[ext_resource type="Texture2D" uid="uid://djalobya6i0io" path="res://images/tier list/avatar/Layer 1.png" id="5_whdr5"]
-[ext_resource type="Texture2D" uid="uid://clbxwpm2a6ffq" path="res://images/tier list/avatar/Layer 2.png" id="6_srkel"]
-[ext_resource type="Texture2D" uid="uid://bi0su551vjvap" path="res://images/tier list/avatar/Layer 3.png" id="7_87wc5"]
-[ext_resource type="Texture2D" uid="uid://c3ptnryusywch" path="res://images/tier list/avatar/Layer 4.png" id="8_2hj18"]
-[ext_resource type="Texture2D" uid="uid://bd2u5neyb01h4" path="res://images/tier list/avatar/Layer 5.png" id="9_424n0"]
-[ext_resource type="Texture2D" uid="uid://cvwx8lg70unhs" path="res://images/tier list/avatar/Layer 6.png" id="10_cf7jg"]
-[ext_resource type="Texture2D" uid="uid://bfe5577ie7ima" path="res://images/tier list/avatar/Layer 7.png" id="11_kwgy2"]
-[ext_resource type="Texture2D" uid="uid://c60p6qtv5yo8t" path="res://images/tier list/avatar/Layer 8.png" id="12_dobo5"]
-[ext_resource type="Texture2D" uid="uid://b26krqprrhmq3" path="res://images/tier list/avatar/Layer 9.png" id="13_0aoyy"]
-[ext_resource type="Texture2D" uid="uid://c2jswpqti67pr" path="res://images/tier list/avatar/Layer 10.png" id="14_jgbr7"]
-[ext_resource type="Texture2D" uid="uid://c5yi6o0bmrifp" path="res://images/tier list/avatar/Layer 11.png" id="15_6r32w"]
-[ext_resource type="Texture2D" uid="uid://h7nlp5yrgu2j" path="res://images/tier list/avatar/Layer 12.png" id="16_dnjp0"]
-[ext_resource type="Texture2D" uid="uid://16hb4x1i83q2" path="res://images/tier list/avatar/Layer 13.png" id="17_ahbyb"]
-[ext_resource type="Texture2D" uid="uid://bnef6dm6witxw" path="res://images/tier list/avatar/Layer 14.png" id="18_wylyr"]
-[ext_resource type="Texture2D" uid="uid://bcaijhanush8y" path="res://images/tier list/avatar/Layer 15.png" id="19_5lywm"]
 [ext_resource type="FontFile" uid="uid://b2dee8vg1lqv" path="res://fonts/LilitaOne-Regular.ttf" id="21_ayri5"]
 [ext_resource type="StyleBox" uid="uid://bwsva0drgc1qm" path="res://themes/grey_box.tres" id="22_mstbo"]
 [ext_resource type="Script" path="res://scenes/create_avatar/username_field.gd" id="23_a8utl"]
@@ -35,6 +21,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_o23bc")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -137,85 +124,85 @@ columns = 5
 
 [node name="AvatarButton" parent="Avatar/GridContainer" node_paths=PackedStringArray("player") instance=ExtResource("4_s4eow")]
 layout_mode = 2
-image = ExtResource("5_whdr5")
+image_num = 1
 player = NodePath("../../../Player")
 
 [node name="AvatarButton2" parent="Avatar/GridContainer" node_paths=PackedStringArray("player") instance=ExtResource("4_s4eow")]
 layout_mode = 2
-image = ExtResource("6_srkel")
+image_num = 2
 player = NodePath("../../../Player")
 
 [node name="AvatarButton3" parent="Avatar/GridContainer" node_paths=PackedStringArray("player") instance=ExtResource("4_s4eow")]
 layout_mode = 2
-image = ExtResource("7_87wc5")
+image_num = 3
 player = NodePath("../../../Player")
 
 [node name="AvatarButton4" parent="Avatar/GridContainer" node_paths=PackedStringArray("player") instance=ExtResource("4_s4eow")]
 layout_mode = 2
-image = ExtResource("8_2hj18")
+image_num = 4
 player = NodePath("../../../Player")
 
 [node name="AvatarButton5" parent="Avatar/GridContainer" node_paths=PackedStringArray("player") instance=ExtResource("4_s4eow")]
 layout_mode = 2
-image = ExtResource("9_424n0")
+image_num = 5
 player = NodePath("../../../Player")
 
 [node name="AvatarButton6" parent="Avatar/GridContainer" node_paths=PackedStringArray("player") instance=ExtResource("4_s4eow")]
 layout_mode = 2
-image = ExtResource("10_cf7jg")
+image_num = 6
 player = NodePath("../../../Player")
 
 [node name="AvatarButton7" parent="Avatar/GridContainer" node_paths=PackedStringArray("player") instance=ExtResource("4_s4eow")]
 layout_mode = 2
-image = ExtResource("11_kwgy2")
+image_num = 7
 player = NodePath("../../../Player")
 
 [node name="AvatarButton8" parent="Avatar/GridContainer" node_paths=PackedStringArray("player") instance=ExtResource("4_s4eow")]
 layout_mode = 2
-image = ExtResource("12_dobo5")
+image_num = 8
 player = NodePath("../../../Player")
 
 [node name="AvatarButton9" parent="Avatar/GridContainer" node_paths=PackedStringArray("player") instance=ExtResource("4_s4eow")]
 layout_mode = 2
-image = ExtResource("13_0aoyy")
+image_num = 9
 player = NodePath("../../../Player")
 
 [node name="AvatarButton10" parent="Avatar/GridContainer" node_paths=PackedStringArray("player") instance=ExtResource("4_s4eow")]
 layout_mode = 2
-image = ExtResource("14_jgbr7")
+image_num = 10
 player = NodePath("../../../Player")
 
 [node name="AvatarButton11" parent="Avatar/GridContainer" node_paths=PackedStringArray("player") instance=ExtResource("4_s4eow")]
 layout_mode = 2
-image = ExtResource("15_6r32w")
+image_num = 11
 player = NodePath("../../../Player")
 
 [node name="AvatarButton12" parent="Avatar/GridContainer" node_paths=PackedStringArray("player") instance=ExtResource("4_s4eow")]
 layout_mode = 2
-image = ExtResource("16_dnjp0")
+image_num = 12
 player = NodePath("../../../Player")
 
 [node name="AvatarButton13" parent="Avatar/GridContainer" node_paths=PackedStringArray("player") instance=ExtResource("4_s4eow")]
 layout_mode = 2
-image = ExtResource("17_ahbyb")
+image_num = 13
 player = NodePath("../../../Player")
 
 [node name="AvatarButton14" parent="Avatar/GridContainer" node_paths=PackedStringArray("player") instance=ExtResource("4_s4eow")]
 layout_mode = 2
-image = ExtResource("18_wylyr")
+image_num = 14
 player = NodePath("../../../Player")
 
 [node name="AvatarButton15" parent="Avatar/GridContainer" node_paths=PackedStringArray("player") instance=ExtResource("4_s4eow")]
 layout_mode = 2
-image = ExtResource("19_5lywm")
+image_num = 15
 player = NodePath("../../../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_ku8hf")]
 layout_mode = 1
-offset_left = 291.0
-offset_top = -88.0
-offset_right = 291.0
-offset_bottom = -88.0
+offset_left = 296.0
+offset_top = -76.0
+offset_right = 296.0
+offset_bottom = -76.0
 scale = Vector2(5, 5)
 
 [node name="UsernameField" type="LineEdit" parent="."]
@@ -247,5 +234,8 @@ grow_vertical = 1
 text = "Set Avatar"
 _theme = ExtResource("2_1u3ek")
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [connection signal="color_changed" from="Color/ColorPicker" to="Color/ColorPicker" method="_on_color_changed"]
 [connection signal="text_changed" from="UsernameField" to="UsernameField" method="_on_text_changed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

@@ -12,6 +12,11 @@ extends Control
 
 const autosave_dir : String = "user://autosave/"
 const autosave_path : String = autosave_dir + "autosave.tres"
+const main_menu = "res://scenes/main_menu/main_menu.tscn"
+const general_error_overlay = "res://scenes/other/general_error_overlay.tscn"
+
+#true if getting player info. false if simply logging in
+var fetching_info : bool = false
 
 func _ready():
 	#verify save directory and load content
@@ -27,12 +32,22 @@ func _ready():
 
 #manages http request outcomes
 func _on_http_request_request_completed(result, response_code, headers, body):
-	var json = JSON.new()
-	var response_body = json.parse_string(body.get_string_from_utf8())
-	if (response_code != 200):
-		error_message.text = Firebase.prettier_error_message(response_body.error.message)
-	else:
-		get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
+	if (!fetching_info):
+		var json = JSON.new()
+		var response_body = json.parse_string(body.get_string_from_utf8())
+		if (response_code != 200):
+			error_message.text = Firebase.prettier_error_message(response_body.error.message)
+		else:
+			fetching_info = true
+			User.player.get_player_from_email(email.text, http)
+	else: #fetching_info == true
+		#if change scenes if info retrieved successfully
+		match response_code:
+			404:
+				self.add_child(load(general_error_overlay).instantiate())
+			200:
+				get_tree().change_scene_to_file(main_menu)
+		fetching_info = false
 
 #sends signal to start http request for login
 func _on_login_pressed():

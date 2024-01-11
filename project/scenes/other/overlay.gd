@@ -13,5 +13,4 @@ func _ready():
 
 #detecting when button sound is played rather than button to prevent bug where button clicks without sound
 func _on_audio_stream_player_finished():
-	var tween = create_tween()
 	self.queue_free()
