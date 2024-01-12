@@ -2,7 +2,7 @@ extends Node
 
 var webApiKey : String = "insert_key"
 var projectId : String = "tier-it"
-var client_id : String = "324793171839-ejhud9o992b3k3ms2egevr6gkko65c8p.apps.googleusercontent.com"
+var client_id : String = ""
 var client_secret : String = "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"
 
 var loginUrl : String = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key="        + webApiKey
