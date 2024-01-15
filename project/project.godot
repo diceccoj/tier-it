@@ -20,15 +20,19 @@ config/icon="res://images/ui/logo.png"
 
 [autoload]
 
-Firebase="*res://scripts/Firebase.gd"
-Room="*res://scripts/Room.gd"
+Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 User="*res://scripts/User.gd"
+Room="*res://scripts/Room.gd"
 
 [display]
 
 window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-firebase/plugin.cfg")
 
 [rendering]
 

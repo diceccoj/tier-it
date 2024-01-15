@@ -23,7 +23,6 @@ offset_bottom = 72.0
 custom_minimum_size = Vector2(459.83, 0)
 layout_mode = 2
 theme = ExtResource("2_05k6u")
-text = "Test"
 
 [node name="DeleteRoom" parent="HBoxContainer" instance=ExtResource("3_4yvu4")]
 visible = false

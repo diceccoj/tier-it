@@ -83,7 +83,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_1g0ud")
 theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = ExtResource("6_x32u7")
-placeholder_text = "Username"
+placeholder_text = "Username (Max: 9 chars)"
 alignment = 1
 
 [node name="Password" type="LineEdit" parent="."]
@@ -136,7 +136,7 @@ offset_right = 496.0
 offset_bottom = 273.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.686275, 0.027451, 0, 1)
+theme_override_colors/font_color = Color(0.160784, 0.529412, 0.239216, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("5_1g0ud")
@@ -144,8 +144,4 @@ theme_override_font_sizes/font_size = 41
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="CreateAccount" type="HTTPRequest" parent="."]
-
 [connection signal="pressed" from="Register" to="." method="_on_register_pressed"]
-[connection signal="request_completed" from="CreateAccount" to="." method="_on_create_account_request_completed"]
-[connection signal="request_completed" from="CreateAccount" to="." method="_on_http_request_request_completed"]

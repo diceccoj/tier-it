@@ -1,23 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4i4ekipbw121"]
+[gd_scene load_steps=7 format=3 uid="uid://crkmbiy0e3i2w"]
 
 [ext_resource type="Script" path="res://scenes/room_menu/player_decal_button.gd" id="1_ia8rv"]
 [ext_resource type="PackedScene" uid="uid://curhbeokhtixw" path="res://scenes/other/player_decal.tscn" id="2_68qnu"]
+[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="3_bolx5"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7lf15"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4814c"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_ahj8y"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scj53"]
+bg_color = Color(0.870588, 0.870588, 0.870588, 0.407843)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yd1sh"]
-texture = SubResource("CanvasTexture_ahj8y")
-modulate_color = Color(1, 1, 1, 0.521569)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edllm"]
+bg_color = Color(0.541176, 0.541176, 0.541176, 0.647059)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_vuq6j"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ogb15"]
-texture = SubResource("CanvasTexture_vuq6j")
-modulate_color = Color(0.388235, 0.388235, 0.388235, 0.54902)
-
-[node name="PlayerDecalButton" type="Control"]
+[node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -30,16 +26,19 @@ script = ExtResource("1_ia8rv")
 
 [node name="Player" parent="." instance=ExtResource("2_68qnu")]
 layout_mode = 1
-offset_right = 0.567993
 
-[node name="Button" type="Button" parent="."]
-custom_minimum_size = Vector2(50, 50)
+[node name="BlankButton" parent="." instance=ExtResource("3_bolx5")]
+layout_mode = 1
 offset_left = -30.0
 offset_top = -33.0
-offset_right = 35.0
+offset_right = 32.0
 offset_bottom = 34.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_7lf15")
-theme_override_styles/hover = SubResource("StyleBoxTexture_yd1sh")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_ogb15")
+pivot_offset = Vector2(31, 33)
+theme_override_styles/normal = SubResource("StyleBoxFlat_4814c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_scj53")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_edllm")
+text = ""
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BlankButton" to="." method="_on_blank_button_pressed"]
+
+[editable path="Player"]

@@ -1,3 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
 project/scripts/Firebase.gd
+project/addons/godot-firebase/.env

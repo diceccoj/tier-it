@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://bp8wirmom6q8l"]
+
+[ext_resource type="Script" path="res://scenes/other/overlay.gd" id="1_bxbwn"]
+[ext_resource type="Theme" uid="uid://dlc5kr68nn45h" path="res://themes/flexi_button_purple_shadow.tres" id="2_sej4s"]
+[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="3_333lt"]
+[ext_resource type="Script" path="res://scenes/other/delete_room_overlay.gd" id="3_m3rul"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_j4uw6"]
+[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="5_bfrol"]
+[ext_resource type="Theme" uid="uid://b8pd42bnktgig" path="res://themes/green_button.tres" id="6_8tcom"]
+
+[node name="Overlay" type="ColorRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -327.5
+offset_right = 578.0
+offset_bottom = 327.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(578, 327)
+color = Color(0, 0, 0, 0.313726)
+script = ExtResource("1_bxbwn")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -548.5
+offset_top = -306.0
+offset_right = 548.5
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(548, 306)
+theme = ExtResource("2_sej4s")
+script = ExtResource("3_m3rul")
+
+[node name="CloseButton" parent="Panel" instance=ExtResource("3_333lt")]
+layout_mode = 1
+offset_left = -272.0
+offset_top = 36.0
+offset_right = -36.0
+offset_bottom = 101.0
+theme = ExtResource("4_j4uw6")
+text = "No"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -131.5
+offset_right = 256.0
+offset_bottom = -67.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_bfrol")
+text = "Are you sure you want to leave this room?
+
+(If you're the only person in this room, it
+will be deleted!)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Yes" parent="." instance=ExtResource("3_333lt")]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 36.0
+offset_right = 268.0
+offset_bottom = 101.0
+theme = ExtResource("6_8tcom")
+text = "Yes
+"
+
+[node name="ErrorMessage" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = 156.5
+offset_right = 384.0
+offset_bottom = 284.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_bfrol")
+theme_override_colors/font_color = Color(0.807843, 0, 0.00392157, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="finished" from="Panel/CloseButton/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="pressed" from="Yes" to="Panel" method="_on_yes_pressed"]
+
+[editable path="Panel/CloseButton"]

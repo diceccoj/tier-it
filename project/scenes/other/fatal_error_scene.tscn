@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwxi2bq0f5tif"]
+
+[ext_resource type="Script" path="res://scenes/other/fatal_error_scene.gd" id="1_qmson"]
+[ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="2_8i2mr"]
+[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="2_c4y7n"]
+[ext_resource type="Theme" uid="uid://dlc5kr68nn45h" path="res://themes/flexi_button_purple_shadow.tres" id="3_sxufq"]
+[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="5_n888i"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="6_fai3g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jnl7"]
+bg_color = Color(0.843137, 0.392157, 0.247059, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 10
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qmson")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -577.0
+offset_top = -326.0
+offset_right = 579.0
+offset_bottom = 329.0
+texture = ExtResource("2_8i2mr")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -536.0
+offset_top = -290.0
+offset_right = 544.0
+offset_bottom = 298.0
+theme = ExtResource("3_sxufq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5jnl7")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = -272.0
+offset_top = -100.0
+offset_right = 272.0
+offset_bottom = 101.0
+theme = ExtResource("2_c4y7n")
+text = "An error has occurred while trying to connect to server.
+
+Please return to title screen"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MainMenu" parent="." instance=ExtResource("5_n888i")]
+layout_mode = 1
+offset_left = -136.0
+offset_top = 124.0
+offset_right = 136.0
+offset_bottom = 202.0
+text = "Main Menu"
+_theme = ExtResource("6_fai3g")
+
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

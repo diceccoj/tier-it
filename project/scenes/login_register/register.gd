@@ -1,8 +1,5 @@
 extends Control
 
-@onready var create_account = $CreateAccount
-@onready var create_account_info = $CreateAccountInfo
-
 
 @onready var email = $Email
 @onready var username = $Username
@@ -10,39 +7,61 @@ extends Control
 @onready var confirm_password = $ConfirmPassword
 @onready var error_message = $ErrorMessage
 
-const general_error_overlay = "res://scenes/other/general_error_overlay.tscn"
-
-var player : Player
-
-var storing_data = false
-
-#manages outcomes when creating account
-func _on_create_account_request_completed(result, response_code, headers, body):
-	var json = JSON.new()
-	var response_body = json.parse_string(body.get_string_from_utf8())
-	if (response_code != 200):
-		error_message.add_theme_color_override("font_color", Color(0xaf0700ff))
-		error_message.text = Firebase.prettier_error_message(response_body.error.message)
-	elif (!storing_data): #upload user info to firestore database
-		error_message.add_theme_color_override("font_color", Color(0x909090ff))
-		error_message.text = "Storing Player Data..."
-		storing_data = true
-	else: #triggers when account has successfully been fully set up
-		error_message.add_theme_color_override("font_color", Color(0x188248ff))
-		error_message.text = "Account Registered"
-		storing_data = false
 
 
-#manages outcomes when trying to create account info (always comes after create_account)
+
+func _ready():
+	#connecting success and fail functions
+	Firebase.Auth.signup_succeeded.connect(on_signup_succeeded)
+	Firebase.Auth.signup_failed.connect(on_signup_failed)
 
 
 
 func _on_register_pressed():
-	if (password.text != confirm_password.text):
-		error_message.text = "Confirmed Password Doesn't Match"
-		return
-	elif (len(username.text) > 9):
-		error_message.text = "Username Can't be more than 9 characters"
-		return
-	Firebase.signup(email.text, username.text, password.text, create_account)
+	if (len(username.text) > 9):
+		error_message.add_theme_color_override("font_color", Color(0xaf0700ff))
+		error_message.text = "Username must be 9 characters or less"
+	elif (password.text != confirm_password.text):
+		error_message.add_theme_color_override("font_color", Color(0xaf0700ff))
+		error_message.text = "The two password fields don't match"
+	elif(username.text == ""):
+		error_message.add_theme_color_override("font_color", Color(0xaf0700ff))
+		error_message.text = "Username can't be empty"
+	else:
+		error_message.add_theme_color_override("font_color", Color(0x909090ff))
+		error_message.text = "Creating Account..."
+		Firebase.Auth.signup_with_email_and_password(email.text, password.text)
 
+
+func on_signup_succeeded(auth):
+	error_message.text = "Storing Player Data..."
+	await create_and_store_data()
+
+	
+
+func on_signup_failed(code, message):
+	error_message.add_theme_color_override("font_color", Color(0xaf0700ff))
+	error_message.text = Firebase.prettier_error_message(message)
+
+#if localid exists, create and store new player data to firestore
+func create_and_store_data():
+	var auth = Firebase.Auth.auth
+	if (auth.localid):
+		var player_dict : Dictionary = {
+			"username" : username.text, 
+			"in_rooms" : [],
+			"color" : "#0000ff",
+			"avatar_num" : 1
+		}
+		var collection : FirestoreCollection = Firebase.Firestore.collection("players")
+		collection.error.connect(general_error)
+		collection.add(auth.localid, player_dict)
+		
+		error_message.add_theme_color_override("font_color", Color(0x29873dff))
+		error_message.text = "Account Created!"
+	else: #auth.localid doesn't exist
+		error_message.add_theme_color_override("font_color", Color(0xaf0700ff))
+		error_message.text = "Error getting new player id"
+
+func general_error(code, status, message):
+	get_tree().change_scene_to_file("res://scenes/other/fatal_error_scene.tscn")

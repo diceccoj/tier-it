@@ -143,10 +143,7 @@ text = "Save
 Password"
 _theme = ExtResource("10_ym1ym")
 
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
-
 [connection signal="pressed" from="Login" to="." method="_on_login_pressed"]
 [connection signal="pressed" from="SignUp" to="." method="_on_sign_up_pressed"]
 [connection signal="pressed" from="SaveEmail" to="." method="_on_save_email_pressed"]
 [connection signal="pressed" from="SavePassword" to="." method="_on_save_password_pressed"]
-[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

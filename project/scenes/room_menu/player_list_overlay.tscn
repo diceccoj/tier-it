@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bahrec7fcevg2"]
+[gd_scene load_steps=6 format=3 uid="uid://bahrec7fcevg2"]
 
 [ext_resource type="Script" path="res://scenes/other/overlay.gd" id="1_fwhaf"]
 [ext_resource type="Theme" uid="uid://ciqqitidtu2dc" path="res://themes/flexi_button_blue_shadow.tres" id="2_f6far"]
 [ext_resource type="Script" path="res://scenes/room_menu/player_list_overlay.gd" id="3_56ifg"]
 [ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="3_ku74j"]
 [ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_g6rh7"]
-[ext_resource type="PackedScene" uid="uid://d4i4ekipbw121" path="res://scenes/room_menu/player_decal_button.tscn" id="6_u22k5"]
 
 [node name="Overlay" type="ColorRect"]
 anchors_preset = 8
@@ -70,9 +69,6 @@ scale = Vector2(1.5, 1.5)
 theme_override_constants/h_separation = 90
 theme_override_constants/v_separation = 80
 columns = 8
-
-[node name="PlayerDecalButton" parent="Players" instance=ExtResource("6_u22k5")]
-layout_mode = 2
 
 [connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="finished" from="Panel/CloseButton/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

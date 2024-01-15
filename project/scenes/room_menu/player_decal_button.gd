@@ -1,15 +1,22 @@
 extends Control
 
-#overlay paths
-const not_admin_overlay = "res://scenes/other/not_admin_overlay.tscn"
-const remove_player_overlay = "res://scenes/room_menu/remove_player_overlay.tscn"
-
-#variables
 var root_scene : Control
 
-func _on_button_pressed():
-	if (root_scene != null):
+@onready var player = $Player
+
+var remove_player_overlay = "res://scenes/room_menu/remove_player_overlay.tscn"
+var not_admin_overlay = "res://scenes/other/not_admin_overlay.tscn"
+
+
+
+func _on_blank_button_pressed():
+	if (Room.players[0] == User.player.id):
 		var rpo = load(remove_player_overlay).instantiate()
-		rpo.get_child(0).player_to_remove = Player.new()
+		rpo.to_be_removed = player.player
 		root_scene.add_child(rpo)
-	
+	else:
+		root_scene.add_child(load(not_admin_overlay).instantiate())
+
+
+func set_items_with_player(pl:Player):
+	get_child(0).set_items_with_player(pl)

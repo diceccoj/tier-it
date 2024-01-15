@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/other/overlay.gd" id="1_63qg1"]
 [ext_resource type="Theme" uid="uid://doxhakuvlogxj" path="res://themes/flexi_button_orange_shadow.tres" id="2_gqo7q"]
-[ext_resource type="Script" path="res://scenes/main_menu/add_room_overlay.gd" id="3_3510k"]
+[ext_resource type="Script" path="res://scenes/main_menu/create_room_overlay.gd" id="3_jygk1"]
 [ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="4_q1dnf"]
 [ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="5_xxu44"]
 [ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="6_phseb"]
@@ -41,7 +41,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(548, 306)
 theme = ExtResource("2_gqo7q")
-script = ExtResource("3_3510k")
+script = ExtResource("3_jygk1")
 
 [node name="CloseButton" parent="Panel" instance=ExtResource("4_q1dnf")]
 layout_mode = 1
@@ -59,10 +59,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -264.0
-offset_top = -204.0
-offset_right = 248.0
-offset_bottom = -140.0
+offset_left = -256.0
+offset_top = -228.0
+offset_right = 256.0
+offset_bottom = -164.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("6_phseb")
@@ -78,37 +78,38 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -280.0
-offset_top = -124.0
+offset_top = -164.0
 offset_right = 280.0
-offset_bottom = -51.0
+offset_bottom = -91.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("7_ulthj")
 theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = ExtResource("8_2aa78")
-placeholder_text = "Room Name"
+placeholder_text = "Room Name (Max: 15 chars)"
 alignment = 1
+max_length = 15
 
-[node name="RoomCodeLabel" type="Label" parent="."]
+[node name="CodeLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -376.0
-offset_top = -28.0
-offset_right = 377.0
-offset_bottom = 36.0
+offset_left = -256.0
+offset_top = -68.0
+offset_right = 256.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("6_phseb")
-text = "Your Room Code to share with your friends!"
+text = "Room code to share with your friends:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RoomCode" type="LineEdit" parent="."]
+[node name="Room Code" type="LineEdit" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -116,18 +117,18 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -280.0
-offset_top = 44.0
+offset_top = -4.0
 offset_right = 280.0
-offset_bottom = 117.0
+offset_bottom = 69.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("7_ulthj")
 theme_override_font_sizes/font_size = 38
-theme_override_styles/read_only = ExtResource("8_2aa78")
-placeholder_text = "Room Code"
+theme_override_styles/normal = ExtResource("8_2aa78")
+placeholder_text = "Room Name (Max: 10 chars)"
 alignment = 1
-editable = false
+max_length = 10
 
 [node name="Submit" parent="." instance=ExtResource("4_q1dnf")]
 layout_mode = 1
@@ -145,9 +146,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -384.0
+offset_left = -520.0
 offset_top = 132.5
-offset_right = 384.0
+offset_right = 136.0
 offset_bottom = 268.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -155,6 +156,7 @@ theme = ExtResource("6_phseb")
 theme_override_colors/font_color = Color(0.807843, 0, 0.00392157, 1)
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="finished" from="Panel/CloseButton/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

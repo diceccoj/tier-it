@@ -1,10 +1,10 @@
 extends Control
 
+
 @onready var email = $Email
 @onready var password = $Password
 @onready var login = $Login
 @onready var error_message = $ErrorMessage
-@onready var http = $HTTPRequest
 
 @onready var save_email = $SaveEmail
 @onready var save_password = $SavePassword
@@ -13,7 +13,6 @@ extends Control
 const autosave_dir : String = "user://autosave/"
 const autosave_path : String = autosave_dir + "autosave.tres"
 const main_menu = "res://scenes/main_menu/main_menu.tscn"
-const general_error_overlay = "res://scenes/other/general_error_overlay.tscn"
 
 #true if getting player info. false if simply logging in
 var fetching_info : bool = false
@@ -28,30 +27,19 @@ func _ready():
 		email.text = autosave.email
 		password.text = autosave.password
 	
+	#connecting success and fail functions
+	Firebase.Auth.login_succeeded.connect(on_login_succeeded)
+	Firebase.Auth.login_failed.connect(on_login_failed)
 
 
-#manages http request outcomes
-func _on_http_request_request_completed(result, response_code, headers, body):
-	if (!fetching_info):
-		var json = JSON.new()
-		var response_body = json.parse_string(body.get_string_from_utf8())
-		if (response_code != 200):
-			error_message.text = Firebase.prettier_error_message(response_body.error.message)
-		else:
-			fetching_info = true
-			User.player.get_player_from_email(email.text, http)
-	else: #fetching_info == true
-		#if change scenes if info retrieved successfully
-		match response_code:
-			404:
-				self.add_child(load(general_error_overlay).instantiate())
-			200:
-				get_tree().change_scene_to_file(main_menu)
-		fetching_info = false
+
+
 
 #sends signal to start http request for login
 func _on_login_pressed():
-	Firebase.login(email.text, password.text, http)
+	error_message.add_theme_color_override("font_color", Color(0x909090ff))
+	error_message.text = "Attempting to log in..."
+	Firebase.Auth.login_with_email_and_password(email.text, password.text)
 
 
 #saves email/password for quick load on future start times
@@ -62,3 +50,25 @@ func _on_save_email_pressed():
 func _on_save_password_pressed():
 	autosave.password = password.text
 	ResourceSaver.save(autosave, autosave_path)
+
+
+func on_login_succeeded(auth):
+	error_message.text = "Loading..."
+	grab_info_for_user()
+
+func on_login_failed(code, message):
+	error_message.add_theme_color_override("font_color", Color(0xaf0700ff))
+	error_message.text =  Firebase.prettier_error_message(message)
+
+#changes to main menu if succeeds
+func grab_info_for_user() -> bool:
+	var auth = Firebase.Auth.auth
+	if (auth.localid):
+		await User.player.grab_info_from_id(auth.localid)
+		get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
+		return true
+	else:
+		error_message.add_theme_color_override("font_color", Color(0xaf0700ff))
+		error_message.text = "Issue getting player id"
+		return false
+		

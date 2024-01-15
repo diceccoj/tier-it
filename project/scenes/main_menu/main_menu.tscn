@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://c0f6kuyyhq705"]
+[gd_scene load_steps=12 format=3 uid="uid://c0f6kuyyhq705"]
 
 [ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="1_a6qcy"]
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_wnkt4"]
 [ext_resource type="StyleBox" uid="uid://bwsva0drgc1qm" path="res://themes/grey_box.tres" id="2_4b7tl"]
-[ext_resource type="PackedScene" uid="uid://bb7fctmitnci3" path="res://scenes/main_menu/room_button.tscn" id="3_d7mgc"]
 [ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="3_nnhdi"]
 [ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_kfti5"]
 [ext_resource type="Theme" uid="uid://b8pd42bnktgig" path="res://themes/green_button.tres" id="5_a7667"]
@@ -65,9 +64,6 @@ layout_mode = 2
 size_flags_horizontal = 6
 theme_override_constants/separation = 20
 
-[node name="Room" parent="HBoxContainer/RoomPanel/ScrollContainer/VBoxContainer" instance=ExtResource("3_d7mgc")]
-layout_mode = 2
-
 [node name="Buttons" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(270, 0)
 layout_mode = 2
@@ -121,7 +117,7 @@ Avatar"
 _theme = ExtResource("10_65rjr")
 next_scene_path = "res://scenes/create_avatar/create_avatar.tscn"
 
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
-
 [connection signal="pressed" from="HBoxContainer/Buttons/Add" to="." method="_on_add_pressed"]
 [connection signal="pressed" from="HBoxContainer/Buttons/Create" to="." method="_on_create_pressed"]
+[connection signal="pressed" from="HBoxContainer/Buttons/Refresh" to="." method="_on_refresh_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
