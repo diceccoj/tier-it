@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf03bkfhqrivj"]
+[gd_scene load_steps=9 format=3 uid="uid://cf03bkfhqrivj"]
 
 [ext_resource type="Script" path="res://scenes/other/overlay.gd" id="1_4wnxa"]
 [ext_resource type="Theme" uid="uid://dlc5kr68nn45h" path="res://themes/flexi_button_purple_shadow.tres" id="2_14by2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="5_2exvp"]
 [ext_resource type="Theme" uid="uid://b8pd42bnktgig" path="res://themes/green_button.tres" id="6_fkxme"]
 [ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="7_y3ny6"]
+[ext_resource type="FontFile" uid="uid://b2dee8vg1lqv" path="res://fonts/LilitaOne-Regular.ttf" id="8_gqmd3"]
 
 [node name="Overlay" type="ColorRect"]
 anchors_preset = 8
@@ -71,7 +72,30 @@ player from the room?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="LoadingMessage" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = 149.0
+offset_right = 280.0
+offset_bottom = 282.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.807843, 0, 0.00392157, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("8_gqmd3")
+theme_override_font_sizes/font_size = 41
+horizontal_alignment = 1
+autowrap_mode = 3
+
 [connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Panel/CloseButton" to="Panel" method="_on_close_button_pressed"]
 [connection signal="finished" from="Panel/CloseButton/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="pressed" from="Panel/Yes" to="Panel" method="_on_yes_pressed"]
 
 [editable path="Panel/CloseButton"]

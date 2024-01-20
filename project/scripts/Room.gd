@@ -34,14 +34,15 @@ func pull_info(doc_name:String):
 	#pull and set data
 	var finished_task = await room_collection.get_doc(doc_name).task_finished
 	if (no_errors):
-		var document = finished_task.document
+		var document = await finished_task.document
 		room_name = doc_name
-		room_code = document. doc_fields.code
+		room_code = document.doc_fields.code
 		players = document.doc_fields.players
 		active_lists = document.doc_fields.active_lists
 		inactive_lists = document.doc_fields.inactive_lists
 		
 		#creating player objects
+		player_objects.clear()
 		var p : Player
 		for id in players:
 			p = Player.new()
