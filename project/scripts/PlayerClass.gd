@@ -8,7 +8,7 @@ var color : String
 var avatar_num : int
 var no_errors : bool = true
 
-
+signal player_error()
 
 
 func grab_info_from_id(_id:String):
@@ -39,4 +39,4 @@ func publish():
 	
 #for other scenes to look at if something goes wrong
 func general_error(code, status, message):
-	self.no_errors = false
+	player_error.emit()

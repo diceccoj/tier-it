@@ -7,7 +7,7 @@ var player_objects : Array
 var active_lists : Array
 var inactive_lists : Array
 
-var no_errors : bool = true
+signal room_error()
 
 var room_collection : FirestoreCollection
 var collection_path : String
@@ -30,30 +30,27 @@ func publish():
 
 #pull info from collection given name
 func pull_info(doc_name:String):
-	
-	#pull and set data
 	var finished_task = await room_collection.get_doc(doc_name).task_finished
-	if (no_errors):
-		var document = await finished_task.document
-		room_name = doc_name
-		room_code = document.doc_fields.code
-		players = document.doc_fields.players
-		active_lists = document.doc_fields.active_lists
-		inactive_lists = document.doc_fields.inactive_lists
-		
-		#creating player objects
-		player_objects.clear()
-		var p : Player
-		for id in players:
-			p = Player.new()
-			await p.grab_info_from_id(id)
-			if (p.no_errors): player_objects.append(p)
-			else:
-				no_errors = false
-				break
+	var document = await finished_task.document
+	room_name = doc_name
+	room_code = document.doc_fields.code
+	players = document.doc_fields.players
+	active_lists = document.doc_fields.active_lists
+	inactive_lists = document.doc_fields.inactive_lists
 
 
 
+#creating player objects
+func make_player_objects():
+	player_objects.clear()
+	var p : Player
+	for id in players:
+		p = Player.new()
+		await p.grab_info_from_id(id)
+		if (p.no_errors): player_objects.append(p)
+		else:
+			room_error.emit()
+			break
 
 func error_handling(code, status, message):
-	no_errors = false
+	room_error.emit()

@@ -29,9 +29,9 @@ layout_mode = 1
 
 [node name="BlankButton" parent="." instance=ExtResource("3_bolx5")]
 layout_mode = 1
-offset_left = -30.0
+offset_left = -31.0
 offset_top = -33.0
-offset_right = 32.0
+offset_right = 33.0
 offset_bottom = 34.0
 pivot_offset = Vector2(31, 33)
 theme_override_styles/normal = SubResource("StyleBoxFlat_4814c")

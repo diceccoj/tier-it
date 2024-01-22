@@ -12,16 +12,14 @@ const delete_room_overlay = "res://scenes/other/delete_room_overlay.tscn"
 
 func _ready():
 	label.text = label_name
+	
+	Room.room_error.connect(room_error)
 
 #download room data (if possible). Change to room menu if successful
 func _on_pressed():
 	root_scene.add_child(load(loading_overlay).instantiate())
 	await Room.pull_info(label_name)
-	if (Room.no_errors):
-		get_tree().change_scene_to_file("res://scenes/room_menu/room_menu.tscn")
-	else:
-		get_tree().change_scene_to_file("res://scenes/other/fatal_error_scene.tscn")
-
+	get_tree().change_scene_to_file("res://scenes/room_menu/room_menu.tscn")
 
 
 #delete button only visible if main button or itself is hovered on
@@ -45,3 +43,6 @@ func _on_delete_room_pressed():
 	dro.get_child(0).room_name = label_name
 	root_scene.add_child(dro)
 
+#change to fatal error scene if room emits an error signal
+func room_error():
+	get_tree().change_scene_to_file("res://scenes/other/fatal_error_scene.tscn")

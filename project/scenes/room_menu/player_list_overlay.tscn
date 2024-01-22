@@ -77,7 +77,7 @@ offset_top = 42.5
 offset_right = 1051.0
 offset_bottom = 116.5
 theme = ExtResource("2_f6far")
-text = "0/10"
+text = "0/20"
 horizontal_alignment = 1
 vertical_alignment = 1
 
