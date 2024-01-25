@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0f6kuyyhq705"]
+[gd_scene load_steps=9 format=3 uid="uid://c0f6kuyyhq705"]
 
 [ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="1_a6qcy"]
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_wnkt4"]
@@ -8,9 +8,6 @@
 [ext_resource type="Theme" uid="uid://b8pd42bnktgig" path="res://themes/green_button.tres" id="5_a7667"]
 [ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="6_n3j1o"]
 [ext_resource type="PackedScene" uid="uid://bpxm5dp6vvt63" path="res://scenes/other/buttons/back_button.tscn" id="7_isxrj"]
-[ext_resource type="PackedScene" uid="uid://curhbeokhtixw" path="res://scenes/other/player_decal.tscn" id="8_lbw7r"]
-[ext_resource type="PackedScene" uid="uid://c7mvib01non2x" path="res://scenes/other/buttons/scene_change_button.tscn" id="9_8yvea"]
-[ext_resource type="Theme" uid="uid://carp04g3afhlg" path="res://themes/purple_button.tres" id="10_65rjr"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -97,25 +94,28 @@ offset_bottom = -246.0
 text = "Return to Title"
 next_scene_path = "res://scenes/title_screen/title_screen.tscn"
 
-[node name="Player" parent="." instance=ExtResource("8_lbw7r")]
-layout_mode = 1
-offset_left = 402.0
-offset_top = 110.0
-offset_right = 402.0
-offset_bottom = 110.0
-scale = Vector2(2.75, 2.75)
+[node name="LoggedInAs" type="Label" parent="."]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 116.0
+offset_right = 539.0
+offset_bottom = 186.0
+theme = ExtResource("6_n3j1o")
+text = "Logged in as:"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ChangeAvatar" parent="." instance=ExtResource("9_8yvea")]
-layout_mode = 1
-offset_left = 267.0
-offset_top = 228.0
-offset_right = 537.0
-offset_bottom = 298.0
-theme_override_font_sizes/font_size = 21
-text = "Change
-Avatar"
-_theme = ExtResource("10_65rjr")
-next_scene_path = "res://scenes/create_avatar/create_avatar.tscn"
+[node name="UsernameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 164.0
+offset_right = 539.0
+offset_bottom = 234.0
+theme = ExtResource("6_n3j1o")
+theme_override_colors/font_color = Color(0.211765, 0.780392, 0.854902, 1)
+theme_override_font_sizes/font_size = 31
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="HBoxContainer/Buttons/Add" to="." method="_on_add_pressed"]
 [connection signal="pressed" from="HBoxContainer/Buttons/Create" to="." method="_on_create_pressed"]

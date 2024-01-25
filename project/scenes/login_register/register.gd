@@ -49,9 +49,7 @@ func create_and_store_data():
 	if (auth.localid):
 		var player_dict : Dictionary = {
 			"username" : username.text, 
-			"in_rooms" : [],
-			"color" : "#0000ff",
-			"avatar_num" : 1
+			"in_rooms" : []
 		}
 		var collection : FirestoreCollection = Firebase.Firestore.collection("players")
 		collection.error.connect(general_error)

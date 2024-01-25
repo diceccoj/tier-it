@@ -1,15 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvf72d552g10n"]
+[gd_scene load_steps=13 format=3 uid="uid://cvf72d552g10n"]
 
 [ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="1_cr5sc"]
 [ext_resource type="Script" path="res://scenes/room_menu/room_menu.gd" id="1_xmows"]
 [ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="2_a6kgs"]
 [ext_resource type="PackedScene" uid="uid://c7mvib01non2x" path="res://scenes/other/buttons/scene_change_button.tscn" id="3_me6u5"]
 [ext_resource type="Theme" uid="uid://doxhakuvlogxj" path="res://themes/flexi_button_orange_shadow.tres" id="4_lwtmw"]
+[ext_resource type="Theme" uid="uid://bgamdsogmhvxv" path="res://themes/flexi_button_green_shadow.tres" id="5_g2wr7"]
 [ext_resource type="Theme" uid="uid://dlc5kr68nn45h" path="res://themes/flexi_button_purple_shadow.tres" id="5_y5glj"]
 [ext_resource type="Theme" uid="uid://ciqqitidtu2dc" path="res://themes/flexi_button_blue_shadow.tres" id="6_6unjy"]
 [ext_resource type="PackedScene" uid="uid://bpxm5dp6vvt63" path="res://scenes/other/buttons/back_button.tscn" id="6_vk4si"]
 [ext_resource type="FontFile" uid="uid://b2dee8vg1lqv" path="res://fonts/LilitaOne-Regular.ttf" id="9_4ajgp"]
 [ext_resource type="StyleBox" uid="uid://bwsva0drgc1qm" path="res://themes/grey_box.tres" id="10_x8ljr"]
+[ext_resource type="PackedScene" uid="uid://curhbeokhtixw" path="res://scenes/other/player_decal.tscn" id="11_r7khe"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -60,12 +62,24 @@ theme_override_colors/font_color = Color(0.160784, 0.529412, 0.239216, 1)
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="CreateAvatar" parent="." instance=ExtResource("3_me6u5")]
+layout_mode = 1
+offset_left = -496.0
+offset_top = -12.0
+offset_right = -216.0
+offset_bottom = 66.0
+theme_override_font_sizes/font_size = 21
+text = "Change
+Avatar"
+_theme = ExtResource("5_g2wr7")
+next_scene_path = "res://scenes/create_avatar/create_avatar.tscn"
+
 [node name="ActiveLists" parent="." instance=ExtResource("3_me6u5")]
 layout_mode = 1
-offset_left = -489.0
-offset_top = -216.0
-offset_right = -29.0
-offset_bottom = 179.0
+offset_left = -184.0
+offset_top = -220.0
+offset_right = 472.0
+offset_bottom = 68.0
 pivot_offset = Vector2(230, 197)
 theme = ExtResource("4_lwtmw")
 text = "Active Lists"
@@ -73,10 +87,10 @@ next_scene_path = "res://scenes/active_lists/active_lists.tscn"
 
 [node name="InactiveLists" parent="." instance=ExtResource("3_me6u5")]
 layout_mode = 1
-offset_left = 30.0
-offset_top = -216.0
-offset_right = 490.0
-offset_bottom = 179.0
+offset_left = -488.0
+offset_top = 84.0
+offset_right = 480.0
+offset_bottom = 187.0
 pivot_offset = Vector2(230, 197)
 theme = ExtResource("5_y5glj")
 text = "Inactive Lists"
@@ -125,5 +139,13 @@ theme_override_styles/read_only = ExtResource("10_x8ljr")
 placeholder_text = "Room Code"
 alignment = 1
 editable = false
+
+[node name="Player" parent="." instance=ExtResource("11_r7khe")]
+layout_mode = 1
+offset_left = -352.0
+offset_top = -124.0
+offset_right = -352.0
+offset_bottom = -124.0
+scale = Vector2(3, 3)
 
 [connection signal="pressed" from="Player List" to="." method="_on_player_list_pressed"]

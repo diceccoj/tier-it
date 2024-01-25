@@ -25,8 +25,14 @@ func _ready():
 
 func _on_submit_pressed():
 	#create room (if possible)
+	var user_dict : Dictionary = {
+		"id" : User.id,
+		"username" : User.username,
+		"color" : "#0000ff",
+		"avatar_num" : 1
+	}
 	var room_data : Dictionary = {
-		"players" : [User.player.id],
+		"players" : [user_dict],
 		"code" : room_code.text,
 		"active_lists" : [],
 		"inactive_lists" : []
@@ -34,8 +40,8 @@ func _on_submit_pressed():
 	var task : FirestoreTask = room_collection.add(room_name.text, room_data)
 	await task.add_document
 	if (no_errors):
-		User.player.in_rooms.append(room_name.text)
-		await User.player.publish()
+		User.in_rooms.append(room_name.text)
+		await User.publish()
 		error_message.add_theme_color_override("font_color", Color(0x29873dff))
 		error_message.text = "Room Created! Exit and click refresh"
 	else: #reset no_errors

@@ -6,12 +6,12 @@ const create_room_overlay = "res://scenes/main_menu/create_room_overlay.tscn"
 const room_button = "res://scenes/main_menu/room_button.tscn"
 
 #game objects
-@onready var player = $Player
 @onready var v_box_container = $HBoxContainer/RoomPanel/ScrollContainer/VBoxContainer
+@onready var username_label = $UsernameLabel
 
 func _ready():
-	player.set_items_with_player(User.player)
 	refresh_list()
+	username_label.text = User.username
 
 #summon overlay and pass self as root scene for referencing
 func _on_add_pressed():
@@ -32,7 +32,7 @@ func refresh_list():
 		n.queue_free()
 	
 	var rb : Control
-	for room_name in User.player.in_rooms:
+	for room_name in User.in_rooms:
 		rb = load(room_button).instantiate()
 		rb.label_name = room_name
 		rb.root_scene = self

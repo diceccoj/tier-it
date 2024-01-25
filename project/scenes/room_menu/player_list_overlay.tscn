@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bahrec7fcevg2"]
+[gd_scene load_steps=7 format=3 uid="uid://bahrec7fcevg2"]
 
 [ext_resource type="Script" path="res://scenes/other/overlay.gd" id="1_fwhaf"]
 [ext_resource type="Theme" uid="uid://ciqqitidtu2dc" path="res://themes/flexi_button_blue_shadow.tres" id="2_f6far"]
 [ext_resource type="Script" path="res://scenes/room_menu/player_list_overlay.gd" id="3_56ifg"]
 [ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="3_ku74j"]
 [ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_g6rh7"]
+[ext_resource type="Theme" uid="uid://b8pd42bnktgig" path="res://themes/green_button.tres" id="6_lubnh"]
 
 [node name="Overlay" type="ColorRect"]
 anchors_preset = 8
@@ -72,16 +73,26 @@ columns = 8
 
 [node name="PlayerCount" type="Label" parent="."]
 layout_mode = 0
-offset_left = 798.0
-offset_top = 42.5
-offset_right = 1051.0
-offset_bottom = 116.5
+offset_left = 694.0
+offset_top = 45.5
+offset_right = 817.0
+offset_bottom = 119.5
 theme = ExtResource("2_f6far")
 text = "0/20"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Refresh" parent="." instance=ExtResource("3_ku74j")]
+layout_mode = 1
+offset_left = 263.0
+offset_top = -279.0
+offset_right = 509.0
+offset_bottom = -214.0
+text = "Refresh"
+_theme = ExtResource("6_lubnh")
+
 [connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="finished" from="Panel/CloseButton/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="pressed" from="Refresh" to="Panel" method="_on_refresh_pressed"]
 
 [editable path="Panel/CloseButton"]

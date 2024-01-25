@@ -19,31 +19,24 @@ func _ready():
 func _on_yes_pressed():
 	var task : FirestoreTask = room_collection.get_doc(room_name)
 	var finished_task = await task.task_finished
+	var document = finished_task.document
 	
-	if (no_errors): #pull room data and update fields (abort if room code doesn't match)
-		var document = finished_task.document
-		if (len(document.doc_fields.players) == 1): #delete if no players exist after delete
-			User.player.in_rooms.erase(room_name)
-			task = room_collection.delete(room_name)
-			finished_task = await task.delete_document
-		else: #normal delete
-			document.doc_fields.players.erase(User.player.id)
-			User.player.in_rooms.erase(room_name)
-			task = room_collection.update(room_name, document.doc_fields)
-			finished_task = await task.update_document
-		
-		if (no_errors): #update user data
-			await User.player.publish()
-			if (User.player.no_errors):
-				error_message.add_theme_color_override("font_color", Color(0x29873dff))
-				error_message.text = "Room removed! Exit and click refresh"
-			else:
-				error_handling("", "", "") #fields don't matter
-				User.player.no_errors = true
-	no_errors = true
+	#erase from room data
+	for dict in document.doc_fields.players:
+		if (User.id == dict.id):
+			document.doc_fields.players.erase(dict)
+	
+	#grabbing info for user and editing data
+	User.in_rooms.erase(room_name)
+	
+	#push all changes to player and room
+	User.publish()
+	await room_collection.update(room_name, document.doc_fields)
+	error_message.add_theme_color_override("font_color", Color(0x29873dff))
+	error_message.text = "Room deleted! Exit and hit refresh!"
+	
+
 
 
 func error_handling(code, status, message):
-	no_errors = false
-	error_message.add_theme_color_override("font_color", Color(0xaf0700ff))
-	error_message.text = "Something went wrong. Try again later!"
+	get_tree().change_scene_to_file("res://scenes/other/fatal_error_scene.tscn")

@@ -17,6 +17,7 @@ func update_visuals():
 	if (player != null and overlay != null):
 		avatar.texture = load("res://images/tier list/avatar/Layer %s.png" % player.avatar_num)
 		overlay.modulate = Color.html(player.color)
+		point_count.text = str(player.points)
 		label.text = player.username
 	elif (player != null): #fixing an odd bug where references are null
 		get_child(0).texture = load("res://images/tier list/avatar/Layer %s.png" % player.avatar_num)
@@ -27,7 +28,7 @@ func update_visuals():
 func set_items_with_player(pl:Player):
 	self.player = pl
 	self.update_visuals()
-	
+
 
 func set_items(us:String, av:int, clr:String):
 	self.set_username(us)
@@ -51,4 +52,7 @@ func get_username():
 func set_avatar(image_num : int):
 	player.avatar_num = image_num
 	avatar.texture = load("res://images/tier list/avatar/Layer %s.png" % image_num)
+
+func set_points(i:int):
+	point_count.text = str(i)
 

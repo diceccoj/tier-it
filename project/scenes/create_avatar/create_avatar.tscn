@@ -233,7 +233,7 @@ grow_horizontal = 1
 grow_vertical = 1
 text = "Set Avatar"
 _theme = ExtResource("2_1u3ek")
-next_scene_path = "res://scenes/main_menu/main_menu.tscn"
+next_scene_path = "res://scenes/room_menu/room_menu.tscn"
 
 [connection signal="color_changed" from="Color/ColorPicker" to="Color/ColorPicker" method="_on_color_changed"]
 [connection signal="text_changed" from="UsernameField" to="UsernameField" method="_on_text_changed"]

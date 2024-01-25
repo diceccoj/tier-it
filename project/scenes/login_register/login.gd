@@ -64,7 +64,7 @@ func on_login_failed(code, message):
 func grab_info_for_user() -> bool:
 	var auth = Firebase.Auth.auth
 	if (auth.localid):
-		await User.player.grab_info_from_id(auth.localid)
+		await User.grab_info_from_id(auth.localid)
 		get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
 		return true
 	else:

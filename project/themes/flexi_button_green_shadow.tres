@@ -1,0 +1,68 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bgamdsogmhvxv"]
+
+[ext_resource type="FontFile" uid="uid://b2dee8vg1lqv" path="res://fonts/LilitaOne-Regular.ttf" id="1_4o8iv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f110t"]
+bg_color = Color(0, 0.921569, 0.501961, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6lxhr"]
+bg_color = Color(0, 0.776471, 0.419608, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpdvd"]
+bg_color = Color(0, 0.6, 0.317647, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66xsj"]
+bg_color = Color(0.164706, 0.580392, 0.843137, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[resource]
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 7
+Button/font_sizes/font_size = 41
+Button/fonts/font = ExtResource("1_4o8iv")
+Button/styles/hover = SubResource("StyleBoxFlat_f110t")
+Button/styles/normal = SubResource("StyleBoxFlat_6lxhr")
+Button/styles/pressed = SubResource("StyleBoxFlat_cpdvd")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 7
+Label/font_sizes/font_size = 41
+Label/fonts/font = ExtResource("1_4o8iv")
+Panel/styles/panel = SubResource("StyleBoxFlat_66xsj")

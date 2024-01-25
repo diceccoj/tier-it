@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cuopwjdvw5tnj"]
+[gd_scene load_steps=6 format=3 uid="uid://cuopwjdvw5tnj"]
 
 [ext_resource type="Script" path="res://scenes/inactive_lists/inactive_lists.gd" id="1_l75hi"]
 [ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="2_kew80"]
 [ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="3_1de75"]
 [ext_resource type="PackedScene" uid="uid://bpxm5dp6vvt63" path="res://scenes/other/buttons/back_button.tscn" id="4_qq2ai"]
 [ext_resource type="StyleBox" uid="uid://bwsva0drgc1qm" path="res://themes/grey_box.tres" id="5_rp2yy"]
-[ext_resource type="PackedScene" uid="uid://j2r0jvcgy3cr" path="res://scenes/inactive_lists/inactive_list_button.tscn" id="6_ujnbr"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -75,21 +74,3 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 20
-
-[node name="Room" parent="RoomPanel/ScrollContainer/Lists" instance=ExtResource("6_ujnbr")]
-layout_mode = 2
-
-[node name="Room2" parent="RoomPanel/ScrollContainer/Lists" instance=ExtResource("6_ujnbr")]
-layout_mode = 2
-
-[node name="Room3" parent="RoomPanel/ScrollContainer/Lists" instance=ExtResource("6_ujnbr")]
-layout_mode = 2
-
-[node name="Room4" parent="RoomPanel/ScrollContainer/Lists" instance=ExtResource("6_ujnbr")]
-layout_mode = 2
-
-[node name="Room5" parent="RoomPanel/ScrollContainer/Lists" instance=ExtResource("6_ujnbr")]
-layout_mode = 2
-
-[node name="Room6" parent="RoomPanel/ScrollContainer/Lists" instance=ExtResource("6_ujnbr")]
-layout_mode = 2

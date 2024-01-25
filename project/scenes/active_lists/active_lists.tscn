@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://boglus3lushio"]
+[gd_scene load_steps=8 format=3 uid="uid://boglus3lushio"]
 
 [ext_resource type="Script" path="res://scenes/active_lists/active_lists.gd" id="1_mv30q"]
 [ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="1_s6knk"]
@@ -7,7 +7,6 @@
 [ext_resource type="StyleBox" uid="uid://bwsva0drgc1qm" path="res://themes/grey_box.tres" id="4_p5ky5"]
 [ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="6_5tfg7"]
 [ext_resource type="Theme" uid="uid://b8pd42bnktgig" path="res://themes/green_button.tres" id="7_wghk3"]
-[ext_resource type="PackedScene" uid="uid://b8c486x6sosbd" path="res://scenes/active_lists/active_list_button.tscn" id="8_3dn8n"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -93,8 +92,5 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 20
-
-[node name="Room" parent="RoomPanel/ScrollContainer/Lists" instance=ExtResource("8_3dn8n")]
-layout_mode = 2
 
 [connection signal="pressed" from="AddList" to="." method="_on_add_list_pressed"]

@@ -12,6 +12,10 @@ var root_scene : Control
 
 var no_errors : bool = true
 
+
+#yes this code was very messy I was just learning how to make these things work now im too lazy to change it :/
+
+
 func _ready():
 	#get references to collections and connect it to error handling
 	room_collection = Firebase.Firestore.collection("rooms")
@@ -21,7 +25,7 @@ func _ready():
 
 #three requests, pull room data, update room data, and update player data
 func _on_submit_pressed():
-	if (room_name.text in User.player.in_rooms):
+	if (room_name.text in User.in_rooms):
 		error_message.add_theme_color_override("font_color", Color(0xaf0700ff))
 		error_message.text = "You're already in this room!"
 		return
@@ -41,25 +45,29 @@ func _on_submit_pressed():
 			error_message.text = "This room has reached the max amount of players!"
 			return
 		
-		#update user data
-		document.doc_fields.players.append(User.player.id)
-		User.player.in_rooms.append(room_name.text)
+		#update user/room data
+		var user_dict : Dictionary = {
+			"id" : User.id,
+			"username" : User.username,
+			"color" : "#0000ff",
+			"avatar_num" : 1
+		}
+		document.doc_fields.players.append(user_dict)
+		User.in_rooms.append(room_name.text)
 		task = room_collection.update(room_name.text, document.doc_fields)
 		finished_task = await task.update_document
 		if (no_errors): 
-			await User.player.publish()
-			if (User.player.no_errors):
+			await User.publish()
+			if (no_errors):
 				error_message.add_theme_color_override("font_color", Color(0x29873dff))
 				error_message.text = "Room Added! Exit and click refresh"
-			else:
-				error_handling("", "", "") #fields don't matter
-				User.player.no_errors = true
+		if(!no_errors):
+			error_handling("", "", "") #fields don't matter
 	no_errors = true
 
 func error_handling(code, status, message):
 	no_errors = false
 	error_message.add_theme_color_override("font_color", Color(0xaf0700ff))
-	no_errors = false
 	if (status == "NOT_FOUND"):
 		error_message.text = "Room not found. Try a different name!"
 	else:

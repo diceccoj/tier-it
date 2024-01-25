@@ -83,8 +83,9 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_1g0ud")
 theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = ExtResource("6_x32u7")
-placeholder_text = "Username (Max: 9 chars)"
+placeholder_text = "Default Username (9 chars)"
 alignment = 1
+max_length = 9
 
 [node name="Password" type="LineEdit" parent="."]
 layout_mode = 0

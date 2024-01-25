@@ -6,6 +6,7 @@ var players : Array
 var player_objects : Array
 var active_lists : Array
 var inactive_lists : Array
+var user_index : int
 
 signal room_error()
 
@@ -17,6 +18,8 @@ func _ready():
 	room_collection = Firebase.Firestore.collection("rooms")
 	room_collection.error.connect(error_handling)
 
+func user_object():
+	return players[user_index]
 
 func publish():
 	#push changes
@@ -37,20 +40,17 @@ func pull_info(doc_name:String):
 	players = document.doc_fields.players
 	active_lists = document.doc_fields.active_lists
 	inactive_lists = document.doc_fields.inactive_lists
-
-
-
+	
 #creating player objects
-func make_player_objects():
 	player_objects.clear()
 	var p : Player
 	for id in players:
 		p = Player.new()
-		await p.grab_info_from_id(id)
-		if (p.no_errors): player_objects.append(p)
-		else:
-			room_error.emit()
-			break
+		await p.set_info_with_dict(id)
+		player_objects.append(p)
 
 func error_handling(code, status, message):
 	room_error.emit()
+
+
+
