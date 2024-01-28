@@ -4,6 +4,8 @@ extends Panel
 @onready var room_code = $"../RoomCode"
 @onready var submit = $"../Submit"
 @onready var error_message = $"../ErrorMessage"
+@onready var parent = $".."
+
 
 var room_collection : FirestoreCollection
 var player_collection : FirestoreCollection
@@ -59,8 +61,8 @@ func _on_submit_pressed():
 		if (no_errors): 
 			await User.publish()
 			if (no_errors):
-				error_message.add_theme_color_override("font_color", Color(0x29873dff))
-				error_message.text = "Room Added! Exit and click refresh"
+				root_scene.refresh_list()
+				parent.queue_free()
 		if(!no_errors):
 			error_handling("", "", "") #fields don't matter
 	no_errors = true

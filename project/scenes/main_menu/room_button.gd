@@ -2,8 +2,7 @@ extends Button
 
 @onready var label = $HBoxContainer/Label
 @onready var delete_room = $HBoxContainer/DeleteRoom
-@export var label_name : String
-
+@onready var label_name
 @onready var root_scene : Control
 
 const loading_overlay = "res://scenes/other/loading_overlay.tscn"
@@ -12,7 +11,6 @@ const delete_room_overlay = "res://scenes/other/delete_room_overlay.tscn"
 
 func _ready():
 	label.text = label_name
-	
 	Room.room_error.connect(room_error)
 
 #download room data (if possible). Change to room menu if successful
@@ -41,6 +39,7 @@ func _on_delete_room_mouse_exited():
 func _on_delete_room_pressed():
 	var dro : Node = load(delete_room_overlay).instantiate()
 	dro.get_child(0).room_name = label_name
+	dro.get_child(0).root_scene = root_scene
 	root_scene.add_child(dro)
 
 #change to fatal error scene if room emits an error signal

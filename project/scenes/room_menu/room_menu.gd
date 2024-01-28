@@ -14,14 +14,14 @@ func _ready():
 		admin.text = "Admin"
 	
 	#finding the user id and setting the player object to the corresponding information
-	for i in range(0, len(Room.players)-1):
+	for i in range(0, len(Room.players)):
 		if (User.id == Room.players[i].id):
 			Room.user_index = i
-			var p = Player.new()
-			p.set_info_with_dict(Room.players[i])
-			player_decal.set_items_with_player(p)
-			player_decal.update_visuals()
 			break
+	
+	var player_object = Player.new()
+	player_object.set_info_with_dict(Room.user_object())
+	player_decal.set_items_with_player(player_object)
 	room_name.text = Room.room_name
 	room_code.text = Room.room_code
 

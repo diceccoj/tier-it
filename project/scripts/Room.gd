@@ -31,6 +31,22 @@ func publish():
 	}
 	await room_collection.update(room_name, doc)
 
+#publishes a specific value to the server (code is the exact name/spelling of the field being updated)
+func publish_specific(val:String):
+	var doc : Dictionary
+	if (val == "players"):
+		doc = {"players" : players}
+	elif (val == "room_code"):
+		doc = {"room_code" : room_code}
+	elif (val == "active_lists"):
+		doc = {"active_lists" : active_lists}
+	elif (val == "inactive_lists"):
+		doc = {"inactive_lists" : inactive_lists}
+	else:
+		room_error.emit()
+		return
+	await room_collection.update(room_name, doc)
+
 #pull info from collection given name
 func pull_info(doc_name:String):
 	var finished_task = await room_collection.get_doc(doc_name).task_finished

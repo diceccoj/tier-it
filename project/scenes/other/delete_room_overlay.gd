@@ -4,9 +4,9 @@ var room_name : String
 var room_collection : FirestoreCollection
 var player_collection : FirestoreCollection
 var no_errors : bool = true
-
+@onready var parent = $".."
 @onready var error_message = $"../ErrorMessage"
-
+var root_scene : Control
 
 func _ready():
 	#get references to collections and connect it to error handling
@@ -29,11 +29,14 @@ func _on_yes_pressed():
 	#grabbing info for user and editing data
 	User.in_rooms.erase(room_name)
 	
-	#push all changes to player and room
+	#push all changes to player and room (deletes room if no one is in it anymore)
 	User.publish()
-	await room_collection.update(room_name, document.doc_fields)
-	error_message.add_theme_color_override("font_color", Color(0x29873dff))
-	error_message.text = "Room deleted! Exit and hit refresh!"
+	if (document.doc_fields.players == []):
+		await room_collection.delete(room_name)
+	else:
+		await room_collection.update(room_name, document.doc_fields)
+	root_scene.refresh_list()
+	parent.queue_free()
 	
 
 

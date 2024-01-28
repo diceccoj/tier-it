@@ -20,7 +20,7 @@ func _on_yes_pressed():
 	await Room.pull_info(Room.room_name)
 	
 	#grabbing info for room and erasing player data
-	for i in range(0, len(Room.players) - 1):
+	for i in range(0, len(Room.players)):
 		if (player_to_remove == Room.players[i].id):
 			Room.player_objects.remove_at(i)
 			Room.players.remove_at(i)
@@ -32,12 +32,11 @@ func _on_yes_pressed():
 	var task : FirestoreTask = collection.get_doc(player_to_remove)
 	var finished_task : FirestoreTask = await task.task_finished
 	var document = finished_task.document
-	print(Room.room_name)
 	document.doc_fields.in_rooms.erase(Room.room_name)
 	
 	#push all changes to player and room
 	collection.update(player_to_remove, document.doc_fields)
-	await Room.publish()
+	await Room.publish_specific("players")
 	
 	#remove self from scene tree
 	player_overlay.empty_player_grid()

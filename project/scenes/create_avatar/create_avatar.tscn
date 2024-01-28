@@ -45,7 +45,7 @@ offset_left = -552.0
 offset_top = -304.0
 offset_right = -325.0
 offset_bottom = -239.0
-next_scene_path = "res://scenes/main_menu/main_menu.tscn"
+next_scene_path = "res://scenes/room_menu/room_menu.tscn"
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0

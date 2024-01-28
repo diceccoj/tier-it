@@ -23,7 +23,7 @@ func _ready():
 func _on_set_avatar_pressed():
 	var dict : Dictionary = player_object.export_dict()
 	Room.players[Room.user_index] = dict
-	await Room.publish()
+	await Room.publish_specific("players")
 
 func general_error():
 	get_tree().change_scene_to_file("res://scenes/other/fatal_error_scene.tscn")

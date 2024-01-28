@@ -42,6 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(548, 306)
 theme = ExtResource("2_bnpq5")
+script = ExtResource("8_g6avp")
 
 [node name="CloseButton" parent="Panel" instance=ExtResource("3_ip8jo")]
 layout_mode = 1
@@ -76,7 +77,6 @@ theme_override_styles/normal = ExtResource("7_vepha")
 placeholder_text = "Question: 60 chars"
 alignment = 1
 max_length = 60
-script = ExtResource("8_g6avp")
 
 [node name="Random" parent="." instance=ExtResource("3_ip8jo")]
 layout_mode = 1
@@ -93,9 +93,7 @@ offset_left = 78.0
 offset_top = 48.0
 offset_right = 358.0
 offset_bottom = 126.0
-theme_override_font_sizes/font_size = 21
-text = "Create 
-& Vote"
+text = "Create"
 _theme = ExtResource("10_eyysx")
 
 [node name="ErrorMessage" type="Label" parent="."]
@@ -123,7 +121,10 @@ autowrap_mode = 3
 [connection signal="finished" from="Panel/CloseButton/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="text_changed" from="QuestionField" to="QuestionField" method="_on_text_changed"]
 [connection signal="mouse_entered" from="Random" to="QuestionField" method="_on_random_mouse_entered"]
+[connection signal="pressed" from="Random" to="Panel" method="_on_random_pressed"]
 [connection signal="pressed" from="Random" to="Panel/CloseButton" method="_on_random_pressed"]
 [connection signal="pressed" from="Random" to="QuestionField" method="_on_random_pressed"]
+[connection signal="pressed" from="Create" to="." method="_on_create_pressed"]
+[connection signal="pressed" from="Create" to="Panel" method="_on_create_pressed"]
 
 [editable path="Panel/CloseButton"]

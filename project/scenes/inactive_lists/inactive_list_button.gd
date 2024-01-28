@@ -3,18 +3,25 @@ extends Button
 
 const delete_list_overlay = "res://scenes/inactive_lists/delete_list_overlay.tscn"
 
-@onready var label = $HBoxContainer/Label
+@onready var index : int
 @onready var delete = $HBoxContainer/Delete
+@onready var label = $HBoxContainer/Label
 var root_scene : Control
 
 
 func _on_delete_pressed():
 	if (root_scene != null):
+		if (User.id != Room.players[0].id): #if user isnt admin
+			root_scene.add_child(load("res://scenes/other/not_admin_overlay.tscn").instantiate())
+			return
 		var dlo = load(delete_list_overlay).instantiate()
-		dlo.get_child(0).list_question = "abc"
+		dlo.get_child(0).index = index
+		dlo.get_child(0).root_scene = root_scene
 		root_scene.add_child(dlo)
 		
 
+func refresh_visuals():
+	label.text = Room.inactive_lists[index].question
 
 #delete button appears/disappears on hover on either self or children
 func _on_mouse_entered():

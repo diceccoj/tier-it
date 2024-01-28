@@ -5,7 +5,6 @@ var id : String
 var username : String
 var color : String
 var avatar_num : int
-var points : int = 0
 
 var no_errors : bool = true
 
@@ -29,8 +28,6 @@ func export_dict():
 	return dict
 
 #add points to current total
-func add_points(new_points : int):
-	points += new_points
 
 #for other scenes to look at if something goes wrong
 func general_error(code, status, message):

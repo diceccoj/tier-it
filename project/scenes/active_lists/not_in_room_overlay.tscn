@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpr5ykkk77u6o"]
+[gd_scene load_steps=6 format=3 uid="uid://dvvgts2sr0gpf"]
 
-[ext_resource type="Script" path="res://scenes/other/overlay.gd" id="1_tstlf"]
-[ext_resource type="StyleBox" uid="uid://bwsva0drgc1qm" path="res://themes/grey_box.tres" id="2_4rf7u"]
-[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="3_cgiso"]
-[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_2nnmr"]
-[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="5_id3pe"]
+[ext_resource type="Script" path="res://scenes/other/overlay.gd" id="1_xhxbv"]
+[ext_resource type="StyleBox" uid="uid://bwsva0drgc1qm" path="res://themes/grey_box.tres" id="2_n5g38"]
+[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="3_t11ml"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_q3355"]
+[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="5_kyecy"]
 
 [node name="Overlay" type="ColorRect"]
 anchors_preset = 8
@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(578, 327)
 color = Color(0, 0, 0, 0.313726)
-script = ExtResource("1_tstlf")
+script = ExtResource("1_xhxbv")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -36,28 +36,29 @@ offset_bottom = 306.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(548, 306)
-theme_override_styles/panel = ExtResource("2_4rf7u")
+theme_override_styles/panel = ExtResource("2_n5g38")
 
-[node name="CloseButton" parent="Panel" instance=ExtResource("3_cgiso")]
+[node name="CloseButton" parent="Panel" instance=ExtResource("3_t11ml")]
 layout_mode = 1
 offset_left = -532.5
 offset_top = -285.0
 offset_right = -296.5
 offset_bottom = -220.0
-theme = ExtResource("4_2nnmr")
+theme = ExtResource("4_q3355")
 text = "Close"
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 84.5
-offset_top = 158.0
-offset_right = 1014.5
-offset_bottom = 450.0
-theme = ExtResource("5_id3pe")
-text = "You already voted for this tier list.
-
-However, you can still view the rankings! 
-Click \"View List\"."
+offset_left = 169.5
+offset_top = 174.0
+offset_right = 937.5
+offset_bottom = 426.0
+theme = ExtResource("5_kyecy")
+text = "You were added to the room after this tier
+list was made, so you aren't registered
+in it.
+Try finding another tier list, or see the
+results with \"View List\""
 horizontal_alignment = 1
 vertical_alignment = 1
 

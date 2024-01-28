@@ -7,6 +7,8 @@ var root_scene : Control
 @onready var submit = $"../Submit"
 @onready var error_message = $"../ErrorMessage"
 @onready var room_code = $"../Room Code"
+@onready var parent = $".."
+
 
 @onready var player_collection : FirestoreCollection
 @onready var room_collection : FirestoreCollection
@@ -42,8 +44,8 @@ func _on_submit_pressed():
 	if (no_errors):
 		User.in_rooms.append(room_name.text)
 		await User.publish()
-		error_message.add_theme_color_override("font_color", Color(0x29873dff))
-		error_message.text = "Room Created! Exit and click refresh"
+		root_scene.refresh_list()
+		parent.queue_free()
 	else: #reset no_errors
 		no_errors = true
 

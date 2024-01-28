@@ -28,9 +28,8 @@ func refresh_players():
 	if (Room.player_objects.is_empty()):
 		await Room.make_player_objects()
 	
-	#unloading old objects
-	for child in player_grid.get_children():
-		child.queue_free()
+	empty_player_grid()
+	
 	
 	#creating each player object
 	var decal_button : Control
