@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://bomj1y2bkd2p3"]
+
+[ext_resource type="Script" path="res://scenes/other/overlay.gd" id="1_ipi27"]
+[ext_resource type="Theme" uid="uid://doxhakuvlogxj" path="res://themes/flexi_button_orange_shadow.tres" id="2_3rg5c"]
+[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="3_wopbq"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_x86lb"]
+[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="5_3bkvp"]
+
+[node name="Overlay" type="ColorRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -327.5
+offset_right = 578.0
+offset_bottom = 327.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(578, 327)
+color = Color(0, 0, 0, 0.313726)
+script = ExtResource("1_ipi27")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -548.5
+offset_top = -306.0
+offset_right = 548.5
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(548, 306)
+theme = ExtResource("2_3rg5c")
+
+[node name="CloseButton" parent="Panel" instance=ExtResource("3_wopbq")]
+layout_mode = 1
+offset_left = -120.0
+offset_top = 204.0
+offset_right = 116.0
+offset_bottom = 269.0
+pivot_offset = Vector2(118, 28)
+theme = ExtResource("4_x86lb")
+text = "Close"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 194.0
+offset_top = 132.0
+offset_right = 962.0
+offset_bottom = 452.0
+theme = ExtResource("5_3bkvp")
+text = "Click on each of the players and put them in the ranking you want them in!
+If you want to swap two players, just click them both!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="finished" from="Panel/CloseButton/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+
+[editable path="Panel/CloseButton"]

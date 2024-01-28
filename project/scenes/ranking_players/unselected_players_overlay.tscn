@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfldj60g4xnjp"]
+
+[ext_resource type="Script" path="res://scenes/other/overlay.gd" id="1_c2g4s"]
+[ext_resource type="StyleBox" uid="uid://bwsva0drgc1qm" path="res://themes/grey_box.tres" id="2_hg2u6"]
+[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="3_o24w2"]
+[ext_resource type="Script" path="res://scenes/ranking_players/unselected_players_overlay.gd" id="3_x535f"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_pang8"]
+[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="5_r0b0d"]
+
+[node name="Overlay" type="ColorRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -327.5
+offset_right = 578.0
+offset_bottom = 327.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(578, 327)
+color = Color(0, 0, 0, 0.313726)
+script = ExtResource("1_c2g4s")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -548.5
+offset_top = -306.0
+offset_right = 548.5
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(548, 306)
+theme_override_styles/panel = ExtResource("2_hg2u6")
+script = ExtResource("3_x535f")
+
+[node name="CloseButton" parent="Panel" instance=ExtResource("3_o24w2")]
+layout_mode = 1
+offset_left = -112.0
+offset_top = 156.0
+offset_right = 124.0
+offset_bottom = 221.0
+pivot_offset = Vector2(118, 32)
+theme = ExtResource("4_pang8")
+text = "Close"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 132.0
+offset_right = 962.0
+offset_bottom = 452.0
+theme = ExtResource("5_r0b0d")
+text = "There are players without rankings!
+If you submit, all unranked players will
+be given a mid-level rating."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="finished" from="Panel/CloseButton/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="finished" from="Panel/CloseButton/AudioStreamPlayer" to="Panel" method="_on_audio_stream_player_finished"]
+
+[editable path="Panel/CloseButton"]

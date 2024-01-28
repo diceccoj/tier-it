@@ -11,7 +11,6 @@ const delete_room_overlay = "res://scenes/other/delete_room_overlay.tscn"
 
 func _ready():
 	label.text = label_name
-	Room.room_error.connect(room_error)
 
 #download room data (if possible). Change to room menu if successful
 func _on_pressed():
@@ -42,6 +41,3 @@ func _on_delete_room_pressed():
 	dro.get_child(0).root_scene = root_scene
 	root_scene.add_child(dro)
 
-#change to fatal error scene if room emits an error signal
-func room_error():
-	get_tree().change_scene_to_file("res://scenes/other/fatal_error_scene.tscn")

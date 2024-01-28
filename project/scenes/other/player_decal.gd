@@ -54,5 +54,6 @@ func set_avatar(image_num : int):
 
 func set_points(i:int):
 	point_count.text = str(i)
-	
+
+
 

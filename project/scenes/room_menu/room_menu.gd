@@ -22,8 +22,12 @@ func _ready():
 	var player_object = Player.new()
 	player_object.set_info_with_dict(Room.user_object())
 	player_decal.set_items_with_player(player_object)
+	
 	room_name.text = Room.room_name
-	room_code.text = Room.room_code
+	if (Room.room_code == ""):
+		room_code.text = "(no room code)"
+	else:
+		room_code.text = Room.room_code
 
 
 func _on_player_list_pressed():

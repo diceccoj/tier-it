@@ -40,6 +40,7 @@ func pull_info(_index:int, _is_active:bool):
 		
 	#setting player objects
 	#possibilities: player at index of Room.players, player in Room.players but at different index, or player not in Room.players (they since left the room)
+	player_objects.clear()
 	for i in range(0, len(players)):
 		if (players[i].id == Room.players[i].id):
 			player_objects.append(Room.player_objects[i])
@@ -79,4 +80,18 @@ func find_player_index(_id : String) -> int:
 			return i
 	return -1
 
-
+#deactivate a list at index
+func deactivate(_index:int):
+	var dict = Room.active_lists[_index]
+	var new_dict : Dictionary = {
+		"players" : dict.players,
+		"points" : dict.points,
+		"question" : dict.question
+	}
+	
+	#make changes and create inactive dict (same as active lists but with out the is_voted array)
+	Room.active_lists.remove_at(_index)
+	Room.inactive_lists.push_front(new_dict)
+	
+	#push changes
+	Room.publish()

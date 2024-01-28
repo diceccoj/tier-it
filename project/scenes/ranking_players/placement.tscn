@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://b637425ikpt10"]
+
+[ext_resource type="Script" path="res://scenes/ranking_players/placement.gd" id="1_pyinv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6m64"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38s1c"]
+bg_color = Color(0.615686, 0.615686, 0.615686, 0)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dad17"]
+bg_color = Color(1, 1, 1, 0.32549)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqwfc"]
+bg_color = Color(0.6, 0.6, 0.6, 0.466667)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6xga"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Placement" type="Panel"]
+custom_minimum_size = Vector2(158, 95)
+theme_override_styles/panel = SubResource("StyleBoxFlat_f6m64")
+script = ExtResource("1_pyinv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 68.0
+offset_bottom = 86.0
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 92.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_38s1c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dad17")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iqwfc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h6xga")
+toggle_mode = true
+
+[node name="PlayerSlot" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 47.43
+offset_right = 104.0
+offset_bottom = 47.43
+
+[connection signal="toggled" from="Button" to="." method="_on_button_toggled"]

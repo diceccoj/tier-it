@@ -17,19 +17,7 @@ func _on_yes_pressed():
 	root_scene.add_child(lo)
 	await Room.pull_info(Room.room_name)
 	
-	var dict = Room.active_lists[index]
-	var new_dict : Dictionary = {
-		"players" : dict.players,
-		"points" : dict.points,
-		"question" : dict.question
-	}
-	
-	#make changes and create inactive dict (same as active lists but with out the is_voted array)
-	Room.active_lists.remove_at(index)
-	Room.inactive_lists.push_front(new_dict)
-	
-	#push changes
-	Room.publish()
+	await List.deactivate(index)
 	
 	#refresh list and close scene
 	root_scene.fill_list_container()

@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://crkmbiy0e3i2w"]
+[gd_scene load_steps=7 format=3 uid="uid://xh4prrkw3pmg"]
 
-[ext_resource type="Script" path="res://scenes/room_menu/player_decal_button.gd" id="1_ia8rv"]
-[ext_resource type="PackedScene" uid="uid://curhbeokhtixw" path="res://scenes/other/player_decal.tscn" id="2_68qnu"]
-[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="3_bolx5"]
+[ext_resource type="Script" path="res://scenes/ranking_players/player_decal_game_button.gd" id="1_og1tn"]
+[ext_resource type="PackedScene" uid="uid://curhbeokhtixw" path="res://scenes/other/player_decal.tscn" id="2_bsse7"]
+[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="3_2n3y6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4814c"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d08jx"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scj53"]
@@ -21,7 +21,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="Control" type="Control"]
+[node name="PlayerDecalGameButton" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -30,27 +30,29 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ia8rv")
+script = ExtResource("1_og1tn")
 
-[node name="Player" parent="." instance=ExtResource("2_68qnu")]
+[node name="Player" parent="." instance=ExtResource("2_bsse7")]
 layout_mode = 1
 
 [node name="PointCount" parent="Player" index="3"]
 offset_bottom = -7.0
 theme_override_font_sizes/font_size = 17
 
-[node name="BlankButton" parent="." instance=ExtResource("3_bolx5")]
+[node name="BlankButton" parent="." instance=ExtResource("3_2n3y6")]
 layout_mode = 1
 offset_left = -31.0
-offset_top = -33.0
+offset_top = -34.0
 offset_right = 33.0
 offset_bottom = 33.0
 pivot_offset = Vector2(31, 33)
-theme_override_styles/normal = SubResource("StyleBoxFlat_4814c")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d08jx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_scj53")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_edllm")
+toggle_mode = true
 text = ""
 
 [connection signal="pressed" from="BlankButton" to="." method="_on_blank_button_pressed"]
+[connection signal="toggled" from="BlankButton" to="." method="_on_blank_button_toggled"]
 
 [editable path="Player"]
