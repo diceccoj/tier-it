@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfldj60g4xnjp"]
+[gd_scene load_steps=8 format=3 uid="uid://bfldj60g4xnjp"]
 
 [ext_resource type="Script" path="res://scenes/other/overlay.gd" id="1_c2g4s"]
 [ext_resource type="StyleBox" uid="uid://bwsva0drgc1qm" path="res://themes/grey_box.tres" id="2_hg2u6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/ranking_players/unselected_players_overlay.gd" id="3_x535f"]
 [ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_pang8"]
 [ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="5_r0b0d"]
+[ext_resource type="AudioStream" uid="uid://bnpj8sjlab3hg" path="res://sounds/button_click2.mp3" id="6_3kafk"]
 
 [node name="Overlay" type="ColorRect"]
 anchors_preset = 8
@@ -49,6 +50,9 @@ offset_bottom = 221.0
 pivot_offset = Vector2(118, 32)
 theme = ExtResource("4_pang8")
 text = "Close"
+
+[node name="AudioStreamPlayer" parent="Panel/CloseButton" index="0"]
+stream = ExtResource("6_3kafk")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

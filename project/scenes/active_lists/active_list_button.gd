@@ -4,6 +4,7 @@ extends Control
 @onready var label = $HBoxContainer/Label
 @onready var view_list = $HBoxContainer/ViewList
 @onready var deactivate = $HBoxContainer/Deactivate
+@onready var audio_stream_player = $AudioStreamPlayer
 
 var question : String
 var index : int
@@ -21,6 +22,7 @@ func update_visuals():
 
 #go to the tier list ranking
 func _on_pressed():
+	audio_stream_player.play()
 	var lo : Control = load("res://scenes/other/loading_overlay.tscn").instantiate()
 	root_scene.add_child(lo)
 	await List.pull_info(index, true)

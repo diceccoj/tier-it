@@ -5,9 +5,11 @@ var root_scene : Control
 @onready var player_slot = $PlayerSlot
 @onready var label = $Label
 var placement : int
+@onready var audio_stream_player = $AudioStreamPlayer
 
 
 func _on_button_toggled(toggled_on):
+	audio_stream_player.play()
 	if (toggled_on):
 		root_scene.set_selected_placement(self)
 	elif(!toggled_on and root_scene.selected_placement == self):

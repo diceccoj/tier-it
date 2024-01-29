@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8c486x6sosbd"]
+[gd_scene load_steps=8 format=3 uid="uid://b8c486x6sosbd"]
 
 [ext_resource type="Theme" uid="uid://dbcjbkfe0u0yd" path="res://themes/flexi_button_orange.tres" id="1_s6sth"]
 [ext_resource type="Script" path="res://scenes/active_lists/active_list_button.gd" id="2_nj7qs"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="4_ipkjf"]
 [ext_resource type="Theme" uid="uid://carp04g3afhlg" path="res://themes/purple_button.tres" id="5_p4smt"]
 [ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="5_qk4l0"]
+[ext_resource type="AudioStream" uid="uid://dskf8sl3hx0vb" path="res://sounds/button_click.mp3" id="7_sik5m"]
 
 [node name="Room" type="Button"]
 custom_minimum_size = Vector2(950, 80)
@@ -43,6 +44,10 @@ custom_minimum_size = Vector2(214.94, 0)
 layout_mode = 2
 theme = ExtResource("5_qk4l0")
 text = "Deactivate"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_sik5m")
+volume_db = -10.902
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

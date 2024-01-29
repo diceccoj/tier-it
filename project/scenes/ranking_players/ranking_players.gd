@@ -14,6 +14,7 @@ var are_you_sure = "res://scenes/ranking_players/are_you_sure_overlay.tscn"
 var unselected_players = "res://scenes/ranking_players/unselected_players_overlay.tscn"
 
 func _ready():
+	self.add_child(load(tutorial).instantiate())
 	var game_button = load("res://scenes/ranking_players/player_decal_game_button.tscn")
 	var placement = load("res://scenes/ranking_players/placement.tscn")
 	
@@ -111,24 +112,33 @@ func _on_submit_pressed():
 #submits answers to Firestore
 func submit():
 	await Room.pull_info(Room.room_name)
-	
-	#change User's voted value to true
+	var temp = Room.get_index_with_question(question.text, true)
+	List.pull_info(temp, true)
+	#change User's has_voted value to true
 	List.has_voted[List.find_player_index(User.id)] = true
 	
 	#change point counts
 	var increment : int
 	var player_index : int
 	for node in rankings.get_children():
-		increment = node.placement
-		player_index = node.player_slot.get_child(0).player_index
+		increment = len(List.players) - node.placement
+		if(node.player_slot.get_child(0) != null):
+			player_index = node.player_slot.get_child(0).player_index
+			List.points[player_index] += increment
+	
+	#adding half the amount of points for those who weren't placed
+	for node in players.get_children():
+		increment = round((len(List.players) - 1) / 2)
+		player_index = node.player_index
 		List.points[player_index] += increment
+	
 	
 	#push changes (if everyone has voted, deactivate)
 	var everyone_has_voted : Array #an array of all trues
 	for i in range(0, len(List.players)):
 		everyone_has_voted.append(true)
 	if(List.has_voted == everyone_has_voted):
-		var temp = List.active_lists.find(question.text)
 		List.deactivate(temp)
+		List.is_active = false
 	else:
 		Room.publish_specific("active_lists")

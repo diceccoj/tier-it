@@ -56,8 +56,10 @@ func pull_info(doc_name:String):
 	players = document.doc_fields.players
 	active_lists = document.doc_fields.active_lists
 	inactive_lists = document.doc_fields.inactive_lists
-	
-#creating player objects
+	create_player_objects()
+
+#turns dictionaries in players to player objects
+func create_player_objects():
 	player_objects.clear()
 	var p : Player
 	for id in players:
@@ -68,5 +70,12 @@ func pull_info(doc_name:String):
 func error_handling(code, status, message):
 	room_error.emit()
 
-
+func get_index_with_question(q:String, _is_active:bool):
+	if(_is_active):
+		for i in range(0, len(active_lists)):
+			if(active_lists[i].question == q): return i
+	else:
+		for i in range(0, len(inactive_lists)):
+			if(inactive_lists[i].question == q): return i
+		
 

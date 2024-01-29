@@ -4,6 +4,7 @@ extends Button
 @onready var delete_room = $HBoxContainer/DeleteRoom
 @onready var label_name
 @onready var root_scene : Control
+@onready var audio_stream_player = $AudioStreamPlayer
 
 const loading_overlay = "res://scenes/other/loading_overlay.tscn"
 const delete_room_overlay = "res://scenes/other/delete_room_overlay.tscn"
@@ -14,6 +15,7 @@ func _ready():
 
 #download room data (if possible). Change to room menu if successful
 func _on_pressed():
+	audio_stream_player.play()
 	root_scene.add_child(load(loading_overlay).instantiate())
 	await Room.pull_info(label_name)
 	get_tree().change_scene_to_file("res://scenes/room_menu/room_menu.tscn")

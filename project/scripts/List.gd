@@ -36,13 +36,13 @@ func pull_info(_index:int, _is_active:bool):
 		index = _index
 		question = Room.inactive_lists[index].question
 		players = Room.inactive_lists[index].players
-		points = Room.active_lists[index].points
+		points = Room.inactive_lists[index].points
 		
 	#setting player objects
 	#possibilities: player at index of Room.players, player in Room.players but at different index, or player not in Room.players (they since left the room)
 	player_objects.clear()
 	for i in range(0, len(players)):
-		if (players[i].id == Room.players[i].id):
+		if (i < len(Room.players) and players[i].id == Room.players[i].id):
 			player_objects.append(Room.player_objects[i])
 			continue
 		var j = in_room_players(players[i].id)
@@ -51,7 +51,7 @@ func pull_info(_index:int, _is_active:bool):
 		else:
 			var dict : Dictionary = {
 				"username" : players[i].username,
-				"id" : player_objects[i].id,
+				"id" : players[i].id,
 				"color" : "#0000ff",
 				"avatar_num" : 1
 			}
@@ -80,18 +80,14 @@ func find_player_index(_id : String) -> int:
 			return i
 	return -1
 
+
 #deactivate a list at index
 func deactivate(_index:int):
 	var dict = Room.active_lists[_index]
-	var new_dict : Dictionary = {
-		"players" : dict.players,
-		"points" : dict.points,
-		"question" : dict.question
-	}
 	
 	#make changes and create inactive dict (same as active lists but with out the is_voted array)
 	Room.active_lists.remove_at(_index)
-	Room.inactive_lists.push_front(new_dict)
+	Room.inactive_lists.push_front(dict)
 	
 	#push changes
 	Room.publish()

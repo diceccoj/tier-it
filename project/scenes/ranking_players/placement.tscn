@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b637425ikpt10"]
+[gd_scene load_steps=8 format=3 uid="uid://b637425ikpt10"]
 
 [ext_resource type="Script" path="res://scenes/ranking_players/placement.gd" id="1_pyinv"]
+[ext_resource type="AudioStream" uid="uid://bnpj8sjlab3hg" path="res://sounds/button_click2.mp3" id="2_bin8k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6m64"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -61,5 +62,9 @@ offset_left = 104.0
 offset_top = 47.43
 offset_right = 104.0
 offset_bottom = 47.43
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bin8k")
+volume_db = -10.902
 
 [connection signal="toggled" from="Button" to="." method="_on_button_toggled"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bujcjefaisdky"]
+[gd_scene load_steps=9 format=3 uid="uid://bujcjefaisdky"]
 
 [ext_resource type="Script" path="res://scenes/other/overlay.gd" id="1_jy6eg"]
 [ext_resource type="Theme" uid="uid://dlc5kr68nn45h" path="res://themes/flexi_button_purple_shadow.tres" id="2_2k6fk"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="3_og02d"]
 [ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_hb1wo"]
 [ext_resource type="Theme" uid="uid://b8pd42bnktgig" path="res://themes/green_button.tres" id="5_l0mnu"]
+[ext_resource type="AudioStream" uid="uid://bnpj8sjlab3hg" path="res://sounds/button_click2.mp3" id="6_852n2"]
 [ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="6_vhnx4"]
 
 [node name="Overlay" type="ColorRect"]
@@ -52,6 +53,9 @@ theme = ExtResource("4_hb1wo")
 text = "No
 "
 
+[node name="AudioStreamPlayer" parent="Panel/CloseButton" index="0"]
+stream = ExtResource("6_852n2")
+
 [node name="Yes" parent="." instance=ExtResource("3_og02d")]
 layout_mode = 1
 offset_left = 32.0
@@ -63,7 +67,11 @@ text = "Yes
 "
 _theme = ExtResource("5_l0mnu")
 
+[node name="AudioStreamPlayer" parent="Yes" index="0"]
+stream = ExtResource("6_852n2")
+
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 194.0
 offset_top = 124.0
 offset_right = 962.0
@@ -79,3 +87,4 @@ autowrap_mode = 3
 [connection signal="pressed" from="Yes" to="Panel" method="_on_yes_pressed"]
 
 [editable path="Panel/CloseButton"]
+[editable path="Yes"]

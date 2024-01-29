@@ -2,11 +2,19 @@ extends Button
 
 
 const delete_list_overlay = "res://scenes/inactive_lists/delete_list_overlay.tscn"
-
+@onready var audio_stream_player = $AudioStreamPlayer
 @onready var index : int
 @onready var delete = $HBoxContainer/Delete
 @onready var label = $HBoxContainer/Label
 var root_scene : Control
+
+func _on_pressed():
+	audio_stream_player.play()
+	var lo : Control = load("res://scenes/other/loading_overlay.tscn").instantiate()
+	root_scene.add_child(lo)
+	await List.pull_info(index, false)
+	get_tree().change_scene_to_file("res://scenes/tier_list/tier_list.tscn")
+
 
 
 func _on_delete_pressed():
@@ -38,3 +46,6 @@ func _on_delete_mouse_entered():
 
 func _on_delete_mouse_exited():
 	delete.visible = false
+
+
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dflrhh76du3qr"]
+[gd_scene load_steps=10 format=3 uid="uid://dflrhh76du3qr"]
 
 [ext_resource type="Script" path="res://scenes/ranking_players/ranking_players.gd" id="1_cdxve"]
 [ext_resource type="Texture2D" uid="uid://qjv5jeq5rpot" path="res://images/ui/background2.jpg" id="1_o2bei"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="7_82o8v"]
 [ext_resource type="Theme" uid="uid://dlc5kr68nn45h" path="res://themes/flexi_button_purple_shadow.tres" id="8_507nj"]
 [ext_resource type="Theme" uid="uid://b8pd42bnktgig" path="res://themes/green_button.tres" id="8_j4l3o"]
+[ext_resource type="AudioStream" uid="uid://bnpj8sjlab3hg" path="res://sounds/button_click2.mp3" id="9_mxxkr"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -119,4 +120,9 @@ offset_bottom = 306.0
 text = "Submit"
 _theme = ExtResource("8_j4l3o")
 
+[node name="AudioStreamPlayer" parent="Submit" index="0"]
+stream = ExtResource("9_mxxkr")
+
 [connection signal="pressed" from="Submit" to="." method="_on_submit_pressed"]
+
+[editable path="Submit"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://xh4prrkw3pmg"]
+[gd_scene load_steps=8 format=3 uid="uid://xh4prrkw3pmg"]
 
 [ext_resource type="Script" path="res://scenes/ranking_players/player_decal_game_button.gd" id="1_og1tn"]
 [ext_resource type="PackedScene" uid="uid://curhbeokhtixw" path="res://scenes/other/player_decal.tscn" id="2_bsse7"]
 [ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="3_2n3y6"]
+[ext_resource type="AudioStream" uid="uid://bnpj8sjlab3hg" path="res://sounds/button_click2.mp3" id="4_nvs20"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d08jx"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -52,7 +53,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_edllm")
 toggle_mode = true
 text = ""
 
+[node name="AudioStreamPlayer" parent="BlankButton" index="0"]
+stream = ExtResource("4_nvs20")
+
 [connection signal="pressed" from="BlankButton" to="." method="_on_blank_button_pressed"]
 [connection signal="toggled" from="BlankButton" to="." method="_on_blank_button_toggled"]
 
 [editable path="Player"]
+[editable path="BlankButton"]

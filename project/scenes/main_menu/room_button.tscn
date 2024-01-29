@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bb7fctmitnci3"]
+[gd_scene load_steps=7 format=3 uid="uid://bb7fctmitnci3"]
 
 [ext_resource type="Theme" uid="uid://dbcjbkfe0u0yd" path="res://themes/flexi_button_orange.tres" id="1_n1l4b"]
 [ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="2_05k6u"]
 [ext_resource type="Script" path="res://scenes/main_menu/room_button.gd" id="2_je1qy"]
 [ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="3_4yvu4"]
 [ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_31x25"]
+[ext_resource type="AudioStream" uid="uid://dskf8sl3hx0vb" path="res://sounds/button_click.mp3" id="6_r1x0a"]
 
 [node name="Room" type="Button"]
 custom_minimum_size = Vector2(720, 80)
@@ -30,6 +31,10 @@ layout_mode = 2
 theme = ExtResource("4_31x25")
 text = "Delete"
 _theme = ExtResource("4_31x25")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_r1x0a")
+volume_db = -10.902
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
