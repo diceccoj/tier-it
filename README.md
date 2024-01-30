@@ -26,6 +26,33 @@ This game is still currently in the testing phase, download links will be releas
 ![alt text](https://media.githubusercontent.com/media/diceccoj/tier-it/main/promo_images/Screenshot_20240129_183614.png)
 ![alt text](https://media.githubusercontent.com/media/diceccoj/tier-it/main/promo_images/Screenshot_20240129_183659.png)
 
+##Credits
+Development:
+Developer:   Jonathan DiCecco
+Panel and Button Art:   Jonathan DiCecco
+
+Assets:
+Font:    Lilita One
+Player Avatars:   "Variety of Animal Avatars". Found on Freepik from Official Account
+
+Backgrounds:
+General Background: "Color Triangle Geometric". Found on Pixabay
+Ranking Background: "Purple Teal Texture". Found on Pixabay
+
+Music:
+General Music:
+Wallpaper by Kevin MacLeod | https://incompetech.com/
+Music promoted by https://www.chosic.com/free-music/all/
+Creative Commons CC BY 3.0
+https://creativecommons.org/licenses/by/3.0/
+Ranking Music:
+Run Amok by Kevin MacLeod | https://incompetech.com/
+Music promoted by https://www.chosic.com/free-music/all/
+Creative Commons CC BY 3.0
+https://creativecommons.org/licenses/by/3.0/
+
+Music:
+GodotFirebase: Extension by GodotNuts on Github
+
 ## Notice
 Any assests not made by Jonathan DiCecco have beem found on royalty-free websites. If you have a problem with your content being in this game, please contact me at jonathan.dicecco@outlook.com.
-Credits can be found in game's credit screen.
