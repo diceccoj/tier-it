@@ -27,5 +27,5 @@ This game is still currently in the testing phase, download links will be releas
 ![alt text](https://media.githubusercontent.com/media/diceccoj/tier-it/main/promo_images/Screenshot_20240129_183659.png)
 
 ## Notice
-Any assests not made by Jonathan DiCecco have beem found on royalty-free websites. If you have a problem with your content being in this game, please contact me at jonathan.dicecco@outlook.com
+Any assests not made by Jonathan DiCecco have beem found on royalty-free websites. If you have a problem with your content being in this game, please contact me at jonathan.dicecco@outlook.com.
 Credits can be found in game's credit screen.
