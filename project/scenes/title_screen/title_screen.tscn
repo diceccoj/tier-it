@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://ta6biglghnaw"]
+[gd_scene load_steps=9 format=3 uid="uid://ta6biglghnaw"]
 
+[ext_resource type="Script" path="res://scenes/title_screen/title_screen.gd" id="1_8xgn8"]
 [ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="1_c7qo0"]
 [ext_resource type="PackedScene" uid="uid://c7mvib01non2x" path="res://scenes/other/buttons/scene_change_button.tscn" id="3_a5jxb"]
 [ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="4_21jfm"]
 [ext_resource type="Theme" uid="uid://carp04g3afhlg" path="res://themes/purple_button.tres" id="4_oflay"]
 [ext_resource type="Texture2D" uid="uid://h88kwe84qvrk" path="res://images/ui/logo.png" id="5_7hban"]
+[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="6_sktj4"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="7_lx8y6"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,6 +18,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8xgn8")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -67,3 +71,71 @@ grow_horizontal = 1
 grow_vertical = 1
 text = "Credits"
 _theme = ExtResource("4_oflay")
+next_scene_path = "res://scenes/credits/credits.tscn"
+
+[node name="Quit" parent="." instance=ExtResource("6_sktj4")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = -140.0
+offset_top = 226.0
+offset_right = 140.0
+offset_bottom = 304.0
+grow_horizontal = 1
+grow_vertical = 1
+text = "Quit"
+_theme = ExtResource("7_lx8y6")
+
+[node name="MyName" type="Label" parent="."]
+layout_mode = 0
+offset_left = -93.0
+offset_top = -30.0
+offset_right = 94.0
+offset_bottom = -5.0
+theme = ExtResource("4_21jfm")
+theme_override_font_sizes/font_size = 21
+text = "By Jonathan DiCecco"
+
+[node name="VolumeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 347.0
+offset_top = 194.0
+offset_right = 421.0
+offset_bottom = 219.0
+theme = ExtResource("4_21jfm")
+theme_override_font_sizes/font_size = 21
+text = "Volume:"
+
+[node name="VolumeValue" type="Label" parent="."]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 221.0
+offset_right = 409.0
+offset_bottom = 257.0
+theme = ExtResource("4_21jfm")
+theme_override_font_sizes/font_size = 31
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 272.0
+offset_right = 491.0
+offset_bottom = 288.0
+max_value = 200.0
+value = 100.0
+
+[node name="Version" type="Label" parent="."]
+offset_left = -548.0
+offset_top = 272.0
+offset_right = -474.0
+offset_bottom = 297.0
+theme = ExtResource("4_21jfm")
+theme_override_font_sizes/font_size = 21
+text = "v1.0"
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_slider_value_changed"]

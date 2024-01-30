@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://crgfffx36nxis"]
+[gd_scene load_steps=20 format=3 uid="uid://crgfffx36nxis"]
 
 [ext_resource type="Texture2D" uid="uid://byxnljmstherx" path="res://images/tier list/red square.png" id="1_aljwd"]
 [ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="1_orgw7"]
@@ -14,6 +14,204 @@
 [ext_resource type="Texture2D" uid="uid://b6kbmqsluqf0x" path="res://images/tier list/purple_square.png" id="8_q2g50"]
 [ext_resource type="PackedScene" uid="uid://c7mvib01non2x" path="res://scenes/other/buttons/scene_change_button.tscn" id="10_medso"]
 [ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="11_wg3gk"]
+[ext_resource type="AudioStream" uid="uid://c3nrsyyynxvk" path="res://sounds/pop.mp3" id="15_ykuvr"]
+[ext_resource type="AudioStream" uid="uid://b0h24j2hgn3hy" path="res://sounds/clapping.wav" id="16_pmq5f"]
+
+[sub_resource type="Animation" id="Animation_6rw12"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../../F-Tier/TierPanel/Players:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.1, 1.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../D-Tier/TierPanel/Players:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../../C-Tier/TierPanel/Players:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../../B-Tier/TierPanel/Players:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../../A-Tier/TierPanel/Players:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_a0js3"]
+resource_name = "startup"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../../F-Tier/TierPanel/Players:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.00136e-05, 1.00136e-05), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../D-Tier/TierPanel/Players:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../../C-Tier/TierPanel/Players:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.3, 1.5, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../../B-Tier/TierPanel/Players:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.7, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../../A-Tier/TierPanel/Players:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.1, 2.3, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.5, 2.7, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.00136e-05, 1.00136e-05), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../../../PopSound")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_ykuvr")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_ykuvr")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_ykuvr")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_ykuvr")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_ykuvr")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_ykuvr")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("16_pmq5f")
+}],
+"times": PackedFloat32Array(0.5, 0.9, 1.3, 1.7, 2.1, 2.5, 2.9)
+}
+tracks/6/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_42g20"]
+_data = {
+"RESET": SubResource("Animation_6rw12"),
+"startup": SubResource("Animation_a0js3")
+}
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -155,6 +353,9 @@ vertical_alignment = 1
 [node name="TierPanel" parent="TierList/A-Tier" instance=ExtResource("4_0rr6b")]
 layout_mode = 2
 
+[node name="Players" parent="TierList/A-Tier/TierPanel" index="0"]
+scale = Vector2(1e-05, 1e-05)
+
 [node name="B-Tier" type="HBoxContainer" parent="TierList"]
 custom_minimum_size = Vector2(100, 80)
 layout_direction = 2
@@ -184,6 +385,9 @@ vertical_alignment = 1
 
 [node name="TierPanel" parent="TierList/B-Tier" instance=ExtResource("4_0rr6b")]
 layout_mode = 2
+
+[node name="Players" parent="TierList/B-Tier/TierPanel" index="0"]
+scale = Vector2(1e-05, 1e-05)
 
 [node name="C-Tier" type="HBoxContainer" parent="TierList"]
 custom_minimum_size = Vector2(100, 80)
@@ -215,6 +419,9 @@ vertical_alignment = 1
 [node name="TierPanel" parent="TierList/C-Tier" instance=ExtResource("4_0rr6b")]
 layout_mode = 2
 
+[node name="Players" parent="TierList/C-Tier/TierPanel" index="0"]
+scale = Vector2(1e-05, 1e-05)
+
 [node name="D-Tier" type="HBoxContainer" parent="TierList"]
 custom_minimum_size = Vector2(100, 80)
 layout_direction = 2
@@ -245,6 +452,9 @@ vertical_alignment = 1
 [node name="TierPanel" parent="TierList/D-Tier" instance=ExtResource("4_0rr6b")]
 layout_mode = 2
 
+[node name="Players" parent="TierList/D-Tier/TierPanel" index="0"]
+scale = Vector2(1e-05, 1e-05)
+
 [node name="F-Tier" type="HBoxContainer" parent="TierList"]
 custom_minimum_size = Vector2(100, 80)
 layout_direction = 2
@@ -274,6 +484,9 @@ vertical_alignment = 1
 
 [node name="TierPanel" parent="TierList/F-Tier" instance=ExtResource("4_0rr6b")]
 layout_mode = 2
+
+[node name="Players" parent="TierList/F-Tier/TierPanel" index="0"]
+scale = Vector2(1.1, 1.1)
 
 [node name="Thresholds" type="Control" parent="."]
 layout_mode = 1
@@ -355,6 +568,15 @@ theme = ExtResource("4_pglyg")
 theme_override_font_sizes/font_size = 19
 text = "0
 "
+
+[node name="PopSound" type="AudioStreamPlayer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../TierList/S-Tier/TierPanel/Players")
+libraries = {
+"": SubResource("AnimationLibrary_42g20")
+}
+autoplay = "startup"
 
 [connection signal="pressed" from="WhoVoted" to="." method="_on_who_voted_pressed"]
 

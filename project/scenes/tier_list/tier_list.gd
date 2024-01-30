@@ -27,6 +27,10 @@ var f_placements : Array
 @onready var d_threshold = $"Thresholds/D-Threshold" #  (N*m)/6
 
 @onready var who_voted = $WhoVoted
+@onready var pop_sound = $PopSound
+@onready var clapping_sound = $ClappingSound
+@onready var question = $Question
+
 
 
 #overlay
@@ -34,6 +38,8 @@ var who_voted_overlay = "res://scenes/tier_list/who_voted_overlay.tscn"
 var player_decal = load("res://scenes/other/player_decal.tscn")
 
 func _ready():
+	question.text = List.question
+	
 	#calculating thresholds and setting the indictators to let people know
 	var voted_count = List.has_voted.count(true)
 	var best_score = len(List.players) - 1
@@ -70,7 +76,6 @@ func _ready():
 			f_grid.add_child(pd)
 		pd.set_items_with_player(List.player_objects[i])
 		pd.set_points(List.points[i])
-	
 
 
 
@@ -96,6 +101,8 @@ func sort_list_players():
 	List.points.reverse()
 	List.players.reverse()
 	List.player_objects.reverse()
+
+
 
 
 func _on_who_voted_pressed():

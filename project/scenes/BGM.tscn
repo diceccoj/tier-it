@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cede6jbwypmgc"]
+
+[ext_resource type="Script" path="res://scenes/BGM.gd" id="1_dfs4p"]
+[ext_resource type="AudioStream" uid="uid://cnsmrfqnflih6" path="res://sounds/bgm.mp3" id="1_lx7y6"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_lx7y6")
+autoplay = true
+script = ExtResource("1_dfs4p")

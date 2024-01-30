@@ -24,10 +24,11 @@ Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 User="*res://scripts/User.gd"
 Room="*res://scripts/Room.gd"
 List="*res://scripts/List.gd"
+BGM="*res://scenes/BGM.tscn"
 
 [display]
 
-window/size/mode=2
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

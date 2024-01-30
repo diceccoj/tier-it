@@ -7,7 +7,7 @@ class_name AutoSave
 
 @export var email : String = ""
 @export var password : String = ""
-
+@export var volume : int = 100
 
 
 

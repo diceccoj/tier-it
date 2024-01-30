@@ -14,6 +14,7 @@ var are_you_sure = "res://scenes/ranking_players/are_you_sure_overlay.tscn"
 var unselected_players = "res://scenes/ranking_players/unselected_players_overlay.tscn"
 
 func _ready():
+	BGM.play_ranking()
 	self.add_child(load(tutorial).instantiate())
 	var game_button = load("res://scenes/ranking_players/player_decal_game_button.tscn")
 	var placement = load("res://scenes/ranking_players/placement.tscn")
@@ -142,3 +143,8 @@ func submit():
 		List.is_active = false
 	else:
 		Room.publish_specific("active_lists")
+
+
+func _on_back_pressed():
+	BGM.play_normal()
+	get_tree().change_scene_to_file("res://scenes/room_menu/room_menu.tscn")

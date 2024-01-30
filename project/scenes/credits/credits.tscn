@@ -1,0 +1,177 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3gjg5npj45g"]
+
+[ext_resource type="Script" path="res://scenes/login_register/register.gd" id="1_nrfkh"]
+[ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="2_av38l"]
+[ext_resource type="PackedScene" uid="uid://c7mvib01non2x" path="res://scenes/other/buttons/scene_change_button.tscn" id="3_exy3p"]
+[ext_resource type="Theme" uid="uid://dlc5kr68nn45h" path="res://themes/flexi_button_purple_shadow.tres" id="3_tu12p"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_a88ul"]
+[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="6_utivi"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nrfkh")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -577.0
+offset_top = -326.0
+offset_right = 579.0
+offset_bottom = 329.0
+texture = ExtResource("2_av38l")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -553.0
+offset_top = -303.0
+offset_right = 560.0
+offset_bottom = 310.0
+theme = ExtResource("3_tu12p")
+
+[node name="Back" parent="." instance=ExtResource("3_exy3p")]
+layout_mode = 1
+offset_left = -528.0
+offset_top = -276.0
+offset_right = -310.0
+offset_bottom = -211.0
+text = "Back"
+_theme = ExtResource("4_a88ul")
+next_scene_path = "res://scenes/title_screen/title_screen.tscn"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = -304.0
+offset_top = -284.0
+offset_right = 304.0
+offset_bottom = 292.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Credits" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_utivi")
+theme_override_font_sizes/font_size = 60
+text = "Credits"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_utivi")
+theme_override_font_sizes/font_size = 41
+text = "
+Development:"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MainText" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_utivi")
+theme_override_font_sizes/font_size = 31
+text = "Developer:   Jonathan DiCecco
+Panel and Button Art:   Jonathan DiCecco"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Title2" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_utivi")
+theme_override_font_sizes/font_size = 41
+text = "
+Assets:"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MainText2" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_utivi")
+theme_override_font_sizes/font_size = 31
+text = "Font:    Lilita One
+
+Player Avatars:   \"Variety of Animal Avatars\". Found on Freepik from Official Account
+
+"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Title3" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_utivi")
+theme_override_font_sizes/font_size = 41
+text = "
+Backgrounds:"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MainText3" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_utivi")
+theme_override_font_sizes/font_size = 31
+text = "General Background: \"Color Triangle Geometric\". Found on Pixabay
+
+Ranking Background: \"Purple Teal Texture\". Found on Pixabay"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Title4" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_utivi")
+theme_override_font_sizes/font_size = 41
+text = "
+Music:"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MainText4" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_utivi")
+theme_override_font_sizes/font_size = 31
+text = "General Music:
+Wallpaper by Kevin MacLeod | https://incompetech.com/
+Music promoted by https://www.chosic.com/free-music/all/
+Creative Commons CC BY 3.0
+https://creativecommons.org/licenses/by/3.0/
+Ranking Music:
+Run Amok by Kevin MacLeod | https://incompetech.com/
+Music promoted by https://www.chosic.com/free-music/all/
+Creative Commons CC BY 3.0
+https://creativecommons.org/licenses/by/3.0/"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Title5" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_utivi")
+theme_override_font_sizes/font_size = 41
+text = "
+Notice:"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MainText5" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_utivi")
+theme_override_font_sizes/font_size = 31
+text = "Any content not made by Jonathan DiCecco has been listed as royalty free.
+If you have a problem with your content being in this game, please contact me at jonathan.dicecco@outlook.com"
+vertical_alignment = 1
+autowrap_mode = 3
