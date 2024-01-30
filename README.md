@@ -27,7 +27,7 @@ This game is still currently in the testing phase, download links will be releas
 ![alt text](https://media.githubusercontent.com/media/diceccoj/tier-it/main/promo_images/Screenshot_20240129_183659.png)
 
 ## Credits
-Development:\n
+Development:
 Developer:   Jonathan DiCecco
 Panel and Button Art:   Jonathan DiCecco
 
