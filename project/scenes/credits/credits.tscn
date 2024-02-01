@@ -148,11 +148,35 @@ Wallpaper by Kevin MacLeod | https://incompetech.com/
 Music promoted by https://www.chosic.com/free-music/all/
 Creative Commons CC BY 3.0
 https://creativecommons.org/licenses/by/3.0/
+
 Ranking Music:
 Run Amok by Kevin MacLeod | https://incompetech.com/
 Music promoted by https://www.chosic.com/free-music/all/
 Creative Commons CC BY 3.0
 https://creativecommons.org/licenses/by/3.0/"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Title6" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_utivi")
+theme_override_font_sizes/font_size = 41
+text = "
+Tools:"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MainText6" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_utivi")
+theme_override_font_sizes/font_size = 31
+text = "Godot: Game Engine
+
+Google Firebase: Used Firestore as player and room database
+
+GodotFirebase: Extension by GodotNuts on Github"
 vertical_alignment = 1
 autowrap_mode = 3
 
@@ -172,6 +196,18 @@ layout_mode = 2
 theme = ExtResource("6_utivi")
 theme_override_font_sizes/font_size = 31
 text = "Any content not made by Jonathan DiCecco has been listed as royalty free.
-If you have a problem with your content being in this game, please contact me at jonathan.dicecco@outlook.com"
+If you have a problem with your content being in this game, please contact me at draac80@gmail.com"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MainText7" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_utivi")
+theme_override_font_sizes/font_size = 31
+text = "
+
+Made in Godot Engine"
+horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

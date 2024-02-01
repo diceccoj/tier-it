@@ -3,6 +3,7 @@ Welcome to Tier It! Made By Jonathan DiCecco.
 ![alt text](https://media.githubusercontent.com/media/diceccoj/tier-it/main/promo_images/Screenshot_20240129_183335.png)
 
 This is an open source tier list maker to make with your friends. Make a room, invite up to 20 people, write questions and rank each other based off of them! (You know, just don't be mean)
+I built this project using the Godot Engine, using Google Firebase as my database. The game communicates it using the REST API
 
 ## What is a tier list?
 A tier list is a list with multiple sections, S, A, B, C, D, and F. S being the best, and F being the lowest. You pick a topic, and rank things depending on which tier you are in. So what if you and your friends can pick a random topic and rank eachother?
@@ -16,6 +17,9 @@ A tier list is a list with multiple sections, S, A, B, C, D, and F. S being the 
 - Create lists with funny question to rank your friends on (again, don't be mean) *Note: only people who were present at the time of the list being made are in te list and can vote. The reason being is because people can come and leave the room as the tier lists are uploaded. Adding people means people will need to rerank players whenever someone is added. This is obviously complicated, can easily break, and probably annoying for the users so lists are restricted to people only present as tier lists are made. People not in a tier list can still view the list however.
 - Deactivate lists: Lists are deactivated when everyone in the list has voted OR by the admin's request. In this state, lists are final and cannot be edited.
 
+## Version
+v1.1
+
 ## Downloads
 This game is still currently in the testing phase, download links will be released when deemed ready.
 
@@ -25,6 +29,9 @@ This game is still currently in the testing phase, download links will be releas
 ![alt text](https://media.githubusercontent.com/media/diceccoj/tier-it/main/promo_images/Screenshot_20240129_183515.png)
 ![alt text](https://media.githubusercontent.com/media/diceccoj/tier-it/main/promo_images/Screenshot_20240129_183614.png)
 ![alt text](https://media.githubusercontent.com/media/diceccoj/tier-it/main/promo_images/Screenshot_20240129_183659.png)
+
+##  License
+This project uses the GPLv3 license. For more information you can look at "LICENSE.txt" in the source folder.
 
 ## Credits
 Development:
@@ -51,10 +58,13 @@ Music promoted by https://www.chosic.com/free-music/all/
 Creative Commons CC BY 3.0
 https://creativecommons.org/licenses/by/3.0/
 
-Music:
+Tools:
+Godot: Game Engine
+Google Firebase: Used Firestore for user and room data management
 GodotFirebase: Extension by GodotNuts on Github
 
+
 ## Notice
-Any assests not made by Jonathan DiCecco have beem found on royalty-free websites. If you have a problem with your content being in this game, please contact me at jonathan.dicecco@outlook.com.
+Any assests not made by Jonathan DiCecco have beem found on royalty-free websites. If you have a problem with your content being in this game, please contact me at draaco80@gmail.com.
 
 If rooms and/or people become meanspirited or hateful, my best advice is that you leave the room. If necessary, you can contact the email above to have further action taken. Otherwise, I am not responsible.

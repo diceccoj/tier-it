@@ -51,12 +51,19 @@ func publish_specific(val:String):
 func pull_info(doc_name:String):
 	var finished_task = await room_collection.get_doc(doc_name).task_finished
 	var document = await finished_task.document
-	room_name = doc_name
-	room_code = document.doc_fields.code
-	players = document.doc_fields.players
-	active_lists = document.doc_fields.active_lists
-	inactive_lists = document.doc_fields.inactive_lists
-	create_player_objects()
+	if(document != null):
+		room_name = doc_name
+		room_code = document.doc_fields.code
+		players = document.doc_fields.players
+		active_lists = document.doc_fields.active_lists
+		inactive_lists = document.doc_fields.inactive_lists
+		create_player_objects()
+	else:
+		room_name = ""
+		room_code = ""
+		players = []
+		active_lists = []
+		inactive_lists = []
 
 #turns dictionaries in players to player objects
 func create_player_objects():
@@ -68,7 +75,10 @@ func create_player_objects():
 		player_objects.append(p)
 
 func error_handling(code, status, message):
-	room_error.emit()
+	if (status in ["ALREADY_EXISTS", "NOT_FOUND"]): #these are minor errors to be handled by other means
+		pass
+	else:
+		room_error.emit()
 
 func get_index_with_question(q:String, _is_active:bool):
 	if(_is_active):

@@ -84,23 +84,28 @@ func sort_list_players():
 	var temp_point : int
 	var temp_po : Player
 	var temp_player : Dictionary
+	var temp_hv : int
 	var index : int
 	for i in range(1, len(List.points)):
 		temp_point = List.points[i]
 		temp_po = List.player_objects[i]
 		temp_player = List.players[i]
+		temp_hv = List.has_voted[i]
 		index = i - 1
 		while (index >= 0 and temp_point < List.points[index]):
 			List.points[index + 1] = List.points[index]
 			List.player_objects[index + 1] = List.player_objects[index]
 			List.players[index + 1] = List.players[index]
+			List.has_voted[index + 1] = List.has_voted[index]
 			index -=1
 		List.points[index + 1] = temp_point
 		List.player_objects[index + 1] = temp_po
 		List.players[index + 1] = temp_player
+		List.has_voted[index + 1] = temp_hv
 	List.points.reverse()
 	List.players.reverse()
 	List.player_objects.reverse()
+	List.has_voted.reverse()
 
 
 

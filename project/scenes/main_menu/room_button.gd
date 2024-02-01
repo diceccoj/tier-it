@@ -42,4 +42,3 @@ func _on_delete_room_pressed():
 	dro.get_child(0).room_name = label_name
 	dro.get_child(0).root_scene = root_scene
 	root_scene.add_child(dro)
-

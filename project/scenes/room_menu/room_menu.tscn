@@ -64,7 +64,7 @@ vertical_alignment = 1
 
 [node name="CreateAvatar" parent="." instance=ExtResource("3_me6u5")]
 layout_mode = 1
-offset_left = -496.0
+offset_left = -480.0
 offset_top = -12.0
 offset_right = -216.0
 offset_bottom = 66.0
@@ -141,9 +141,9 @@ editable = false
 
 [node name="Player" parent="." instance=ExtResource("11_r7khe")]
 layout_mode = 1
-offset_left = -352.0
+offset_left = -344.0
 offset_top = -124.0
-offset_right = -352.0
+offset_right = -344.0
 offset_bottom = -124.0
 scale = Vector2(3, 3)
 

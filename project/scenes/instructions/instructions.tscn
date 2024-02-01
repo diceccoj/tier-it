@@ -1,0 +1,172 @@
+[gd_scene load_steps=7 format=3 uid="uid://7mkk3q4553ym"]
+
+[ext_resource type="Script" path="res://scenes/login_register/register.gd" id="1_w8wrq"]
+[ext_resource type="Texture2D" uid="uid://b8dhs7qw1k451" path="res://images/ui/background.png" id="2_iw3ac"]
+[ext_resource type="Theme" uid="uid://bgamdsogmhvxv" path="res://themes/flexi_button_green_shadow.tres" id="3_m3xpn"]
+[ext_resource type="PackedScene" uid="uid://c7mvib01non2x" path="res://scenes/other/buttons/scene_change_button.tscn" id="4_lv7e7"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="5_oochk"]
+[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="6_gmnot"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w8wrq")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -577.0
+offset_top = -326.0
+offset_right = 579.0
+offset_bottom = 329.0
+texture = ExtResource("2_iw3ac")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -553.0
+offset_top = -303.0
+offset_right = 560.0
+offset_bottom = 310.0
+theme = ExtResource("3_m3xpn")
+
+[node name="Back" parent="." instance=ExtResource("4_lv7e7")]
+layout_mode = 1
+offset_left = -528.0
+offset_top = -276.0
+offset_right = -310.0
+offset_bottom = -211.0
+text = "Back"
+_theme = ExtResource("5_oochk")
+next_scene_path = "res://scenes/title_screen/title_screen.tscn"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = -304.0
+offset_top = -284.0
+offset_right = 304.0
+offset_bottom = 292.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Instructions" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_gmnot")
+theme_override_font_sizes/font_size = 60
+text = "Instructions:"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_gmnot")
+theme_override_font_sizes/font_size = 41
+text = "
+What is a tier list?"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MainText" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_gmnot")
+theme_override_font_sizes/font_size = 31
+text = "
+A tier list is a set of panels, ranging from letters S, A, B, C, D and F. Choose a topic. The higher the placement, the better the ranking (S is the highest and F is the lowest).
+Tier It makes it so you and your friends can make a tier list about a silly topic, and then you can rank eachother to see who matches the topic the most (of course, please don't be mean about it. If any harrassment happens, I advise you separate from the room. You can also contact the developer if necessary. Otherwise, I am not responsible)."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Title2" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_gmnot")
+theme_override_font_sizes/font_size = 41
+text = "
+Accounts:"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MainText2" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_gmnot")
+theme_override_font_sizes/font_size = 31
+text = "
+Create an account using any unique email, along with a password. You can also register a default username (don't worry, this can be changed individually per each room, which will be discussed later)"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Title3" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_gmnot")
+theme_override_font_sizes/font_size = 41
+text = "
+Rooms:"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MainText3" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_gmnot")
+theme_override_font_sizes/font_size = 31
+text = "
+Rooms manage players and create lists for everyone in the group to participate.
+
+- Create a room from the main menu.
+
+- The room must have a unique name
+
+- The room code can be made to restrict unknown players from joining. (optional)
+
+- Only 20 players can join one room
+
+- The room creator is declared admin and has exclusive priveleges such as deleting lists and being able to remove players. If admin is removed, the next person who joined the room the earliest becomes admin.
+
+-If everbody leaves a room and becomes empty, the room, along with all its lists, are DELETED"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Title4" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_gmnot")
+theme_override_font_sizes/font_size = 41
+text = "
+Lists:"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MainText4" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme = ExtResource("6_gmnot")
+theme_override_font_sizes/font_size = 31
+text = "
+- Every room can have any number of lists
+
+- To add a list, go to \"Active Lists\" in a room and click \"Add List\". Then ask a unique question. 
+
+- Anyone is allowed to make a list but only an admin can deactivate and delete a list
+
+- Only people who were in the room at the time of the list's ceration can rank/be ranked.
+
+Why?
+
+The people leave/join rooms at any point in time. If someone is added, how are they ranked? If someone leaves, what happens to their and everyone else's ranking? This would mean everyone would have to vote AGAIN every time the player list is updated. This can cause easy breakages, on top of player's probably being annoyed. So, this restriction was put in place.
+
+- However, ANYONE can view a list, regardless of if they participated
+
+- When a list is deactivated, it is final, no changes can be made to it anymore. Lists are deactivated when declared by the admin or if everyone has voted on a list."
+vertical_alignment = 1
+autowrap_mode = 3

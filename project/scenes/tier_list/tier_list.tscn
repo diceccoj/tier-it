@@ -570,6 +570,7 @@ text = "0
 "
 
 [node name="PopSound" type="AudioStreamPlayer" parent="."]
+bus = &"SoundEffects"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../TierList/S-Tier/TierPanel/Players")

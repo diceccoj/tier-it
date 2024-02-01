@@ -66,5 +66,6 @@ offset_bottom = 47.43
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_bin8k")
 volume_db = -10.902
+bus = &"SoundEffects"
 
 [connection signal="toggled" from="Button" to="." method="_on_button_toggled"]

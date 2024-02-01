@@ -23,6 +23,7 @@ script = ExtResource("1_i2ip6")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_kf6qu")
 volume_db = -10.902
+bus = &"SoundEffects"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

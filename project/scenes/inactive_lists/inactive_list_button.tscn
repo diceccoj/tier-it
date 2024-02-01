@@ -40,6 +40,7 @@ text = "Delete"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_a1g5n")
 volume_db = -10.902
+bus = &"SoundEffects"
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

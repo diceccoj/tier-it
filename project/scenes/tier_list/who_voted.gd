@@ -7,7 +7,7 @@ extends Panel
 func _ready():
 	var player_decal = load("res://scenes/other/player_decal.tscn")
 	var pl : Node
-	for i in range(0, len(List.player_objects)):
+	for i in range(0, len(List.has_voted)):
 		pl = player_decal.instantiate()
 		if (List.has_voted[i]):
 			has_voted_grid.add_child(pl)

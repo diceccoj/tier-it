@@ -9,6 +9,11 @@ const player_list : String = "res://scenes/room_menu/player_list_overlay.tscn"
 
 
 func _ready():
+	#checking if theres a loading error
+	if(len(Room.players) == 0):
+		self.add_child(load("res://scenes/other/somethings_wrong_overlay.tscn").instantiate())
+		return
+	
 	#admin is always the first player listed
 	if (User.id == Room.players[0].id):
 		admin.text = "Admin"
