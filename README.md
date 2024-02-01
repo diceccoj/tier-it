@@ -35,15 +35,19 @@ This project uses the GPLv3 license. For more information you can look at "LICEN
 
 ## Credits
 Development:
+
 Developer:   Jonathan DiCecco
+
 Panel and Button Art:   Jonathan DiCecco
 
 Assets:
 Font:    Lilita One
+
 Player Avatars:   "Variety of Animal Avatars". Found on Freepik from Official Account
 
 Backgrounds:
 General Background: "Color Triangle Geometric". Found on Pixabay
+
 Ranking Background: "Purple Teal Texture". Found on Pixabay
 
 Music:
@@ -61,7 +65,9 @@ https://creativecommons.org/licenses/by/3.0/
 
 Tools:
 Godot: Game Engine
+
 Google Firebase: Used Firestore for user and room data management
+
 GodotFirebase: Extension by GodotNuts on Github
 
 
