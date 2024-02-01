@@ -1,6 +1,6 @@
 # Tier it
 Welcome to Tier It! Made By Jonathan DiCecco.
-![alt text](https://media.githubusercontent.com/media/diceccoj/tier-it/main/promo_images/Screenshot_20240129_183335.png)
+![alt text](https://media.githubusercontent.com/media/diceccoj/tier-it/main/promo_images/Title.png)
 
 This is an open source tier list maker to make with your friends. Make a room, invite up to 20 people, write questions and rank each other based off of them! (You know, just don't be mean)
 I built this project using the Godot Engine, using Google Firebase as my database. The game communicates it using the REST API
@@ -24,7 +24,7 @@ v1.1
 This game is still currently in the testing phase, download links will be released when deemed ready.
 
 ## Gameplay Images
-![alt text](https://media.githubusercontent.com/media/diceccoj/tier-it/main/promo_images/Screenshot_20240129_183402.png)
+![alt text](https://media.githubusercontent.com/media/diceccoj/tier-it/main/promo_images/Screenshot_20240129_183425.png)
 ![alt text](https://media.githubusercontent.com/media/diceccoj/tier-it/main/promo_images/Screenshot_20240129_183425.png)
 ![alt text](https://media.githubusercontent.com/media/diceccoj/tier-it/main/promo_images/Screenshot_20240129_183515.png)
 ![alt text](https://media.githubusercontent.com/media/diceccoj/tier-it/main/promo_images/Screenshot_20240129_183614.png)
