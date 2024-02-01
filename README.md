@@ -34,7 +34,7 @@ This game is still currently in the testing phase, download links will be releas
 This project uses the GPLv3 license. For more information you can look at "LICENSE.txt" in the source folder.
 
 ## Credits
-Development:
+### Development:
 
 Developer:   Jonathan DiCecco
 
@@ -42,7 +42,7 @@ Panel and Button Art:   Jonathan DiCecco
 
 
 
-Assets:
+### Assets:
 
 Font:    Lilita One
 
@@ -50,14 +50,14 @@ Player Avatars:   "Variety of Animal Avatars". Found on Freepik from Official Ac
 
 
 
-Backgrounds:
+### Backgrounds:
 General Background: "Color Triangle Geometric". Found on Pixabay
 
 Ranking Background: "Purple Teal Texture". Found on Pixabay
 
 
 
-Music:
+### Music:
 General Music:
 Wallpaper by Kevin MacLeod | https://incompetech.com/
 Music promoted by https://www.chosic.com/free-music/all/
@@ -72,7 +72,7 @@ https://creativecommons.org/licenses/by/3.0/
 
 
 
-Tools:
+### Tools:
 Godot: Game Engine
 
 Google Firebase: Used Firestore for user and room data management
