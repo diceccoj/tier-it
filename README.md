@@ -66,6 +66,6 @@ GodotFirebase: Extension by GodotNuts on Github
 
 
 ## Notice
-Any assests not made by Jonathan DiCecco have beem found on royalty-free websites. If you have a problem with your content being in this game, please contact me at draaco80@gmail.com.
+Any assests not made by Jonathan DiCecco have been found on royalty-free websites. If you have a problem with your content being in this game, please contact me at draaco80@gmail.com.
 
 If rooms and/or people become meanspirited or hateful, my best advice is that you leave the room. If necessary, you can contact the email above to have further action taken. Otherwise, I am not responsible.
