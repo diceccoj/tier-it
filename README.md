@@ -40,15 +40,22 @@ Developer:   Jonathan DiCecco
 
 Panel and Button Art:   Jonathan DiCecco
 
+
+
 Assets:
+
 Font:    Lilita One
 
 Player Avatars:   "Variety of Animal Avatars". Found on Freepik from Official Account
+
+
 
 Backgrounds:
 General Background: "Color Triangle Geometric". Found on Pixabay
 
 Ranking Background: "Purple Teal Texture". Found on Pixabay
+
+
 
 Music:
 General Music:
@@ -62,6 +69,8 @@ Run Amok by Kevin MacLeod | https://incompetech.com/
 Music promoted by https://www.chosic.com/free-music/all/
 Creative Commons CC BY 3.0
 https://creativecommons.org/licenses/by/3.0/
+
+
 
 Tools:
 Godot: Game Engine
