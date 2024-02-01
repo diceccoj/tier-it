@@ -19,6 +19,9 @@ A tier list is a list with multiple sections, S, A, B, C, D, and F. S being the 
 
 ## Version
 v1.1
+- Bug fixes with the "Who's Voted?" Section not displaying the right players
+- Added Windowed Support with the ability to switch between it and Fullscreen
+- Added an instruction page for new players
 
 ## Downloads
 This game is still currently in the testing phase, download links will be released when deemed ready.
