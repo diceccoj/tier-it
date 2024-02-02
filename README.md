@@ -24,7 +24,7 @@ v1.1
 - Added an instruction page for new players
 
 ## Downloads
-Downloads can be found ![here](https://github.com/diceccoj/tier-it/releases/tag/v1.1)
+Downloads can be found [here](https://github.com/diceccoj/tier-it/releases/tag/v1.1)
 *This game is still currently in the testing phase. Please report any bugs found.
 
 ## Gameplay Images
