@@ -27,6 +27,10 @@ v1.1
 Downloads can be found [here](https://github.com/diceccoj/tier-it/releases/tag/v1.1)
 *This game is still currently in the testing phase. Please report any bugs found.
 
+## Buy me a coffee!
+Unfortunately, maintaining the database won't be free forever. Supporting me [here](https://www.buymeacoffee.com/diceccoj) will help maintain those costs
+and help support other projects in the future! Every donation will be greatly appreciated!
+
 ## Gameplay Images
 ![alt text](https://media.githubusercontent.com/media/diceccoj/tier-it/main/promo_images/Screenshot_20240129_183425.png)
 ![alt text](https://media.githubusercontent.com/media/diceccoj/tier-it/main/promo_images/Screenshot_20240129_183425.png)
