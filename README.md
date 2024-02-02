@@ -24,7 +24,8 @@ v1.1
 - Added an instruction page for new players
 
 ## Downloads
-This game is still currently in the testing phase, download links will be released when deemed ready.
+Downloads can be found ![here](https://github.com/diceccoj/tier-it/releases/tag/v1.1)
+*This game is still currently in the testing phase. Please report any bugs found.
 
 ## Gameplay Images
 ![alt text](https://media.githubusercontent.com/media/diceccoj/tier-it/main/promo_images/Screenshot_20240129_183425.png)
