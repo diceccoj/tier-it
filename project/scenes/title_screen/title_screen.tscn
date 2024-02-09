@@ -187,7 +187,8 @@ offset_right = -474.0
 offset_bottom = 297.0
 theme = ExtResource("4_21jfm")
 theme_override_font_sizes/font_size = 21
-text = "v1.1"
+text = "v1.1.1
+"
 
 [node name="VolumeSliderSE" type="HSlider" parent="."]
 layout_mode = 0
@@ -197,7 +198,17 @@ offset_right = 552.0
 offset_bottom = 312.0
 value = 100.0
 
+[node name="Donate" parent="." instance=ExtResource("6_sktj4")]
+layout_mode = 1
+offset_left = -136.0
+offset_top = 212.0
+offset_right = 136.0
+offset_bottom = 290.0
+theme = ExtResource("10_tvae6")
+text = "Donate"
+
 [connection signal="pressed" from="ScreenMode" to="." method="_on_screen_mode_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="value_changed" from="VolumeSliderSE" to="." method="_on_volume_slider_se_value_changed"]
+[connection signal="pressed" from="Donate" to="." method="_on_blank_button_pressed"]

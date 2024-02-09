@@ -84,10 +84,10 @@ vertical_alignment = 1
 
 [node name="Refresh" parent="." instance=ExtResource("3_ku74j")]
 layout_mode = 1
-offset_left = 263.0
-offset_top = -279.0
-offset_right = 509.0
-offset_bottom = -214.0
+offset_left = 264.0
+offset_top = -284.0
+offset_right = 510.0
+offset_bottom = -219.0
 text = "Refresh"
 _theme = ExtResource("6_lubnh")
 

@@ -61,3 +61,7 @@ func _on_screen_mode_pressed():
 	else:
 		screen_mode.text = "Windowed"
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+
+
+func _on_blank_button_pressed():
+	OS.shell_open("https://www.buymeacoffee.com/diceccoj")

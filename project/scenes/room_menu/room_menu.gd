@@ -33,6 +33,12 @@ func _ready():
 		room_code.text = "(no room code)"
 	else:
 		room_code.text = Room.room_code
+		
+	#small chance of asking for donations
+	var rng = RandomNumberGenerator.new()
+	var i = rng.randi_range(0, 25)
+	if (i == 0):
+		self.add_child(load("res://scenes/other/donation_overlay.tscn").instantiate())
 
 
 func _on_player_list_pressed():

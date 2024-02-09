@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://mqjuesqhjvv7"]
+
+[ext_resource type="Script" path="res://scenes/other/overlay.gd" id="1_6bw25"]
+[ext_resource type="Theme" uid="uid://dlc5kr68nn45h" path="res://themes/flexi_button_purple_shadow.tres" id="2_e2mw1"]
+[ext_resource type="PackedScene" uid="uid://bu7xqjd8obe0a" path="res://scenes/other/buttons/blank_button.tscn" id="3_0qxgd"]
+[ext_resource type="Script" path="res://scenes/other/donation_overlay.gd" id="3_gcd00"]
+[ext_resource type="Theme" uid="uid://bb14jpmq3rnmf" path="res://themes/red_button.tres" id="4_gqds6"]
+[ext_resource type="Theme" uid="uid://3mshnn7sijsm" path="res://themes/blue_button.tres" id="6_fkhss"]
+[ext_resource type="Theme" uid="uid://b8pd42bnktgig" path="res://themes/green_button.tres" id="7_ignnq"]
+
+[node name="Overlay" type="ColorRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -327.5
+offset_right = 578.0
+offset_bottom = 327.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(578, 327)
+color = Color(0, 0, 0, 0.313726)
+script = ExtResource("1_6bw25")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -548.5
+offset_top = -306.0
+offset_right = 548.5
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(548, 306)
+theme = ExtResource("2_e2mw1")
+script = ExtResource("3_gcd00")
+
+[node name="CloseButton" parent="Panel" instance=ExtResource("3_0qxgd")]
+layout_mode = 1
+offset_left = -320.0
+offset_top = 188.0
+offset_right = -84.0
+offset_bottom = 253.0
+pivot_offset = Vector2(118, 32)
+theme = ExtResource("4_gqds6")
+text = "No
+"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 99.5
+offset_right = 930.0
+offset_bottom = 222.5
+theme = ExtResource("6_fkhss")
+theme_override_font_sizes/font_size = 51
+text = "Like the game? Help support us!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 227.5
+offset_right = 898.0
+offset_bottom = 479.5
+theme = ExtResource("6_fkhss")
+text = "Unfortunately, maintaining the database won't be free forever.
+A small donation will go a long way to supporting this game and future
+products."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Yes" parent="." instance=ExtResource("3_0qxgd")]
+layout_mode = 1
+offset_left = 72.0
+offset_top = 188.0
+offset_right = 316.0
+offset_bottom = 253.0
+theme = ExtResource("7_ignnq")
+text = "Yes
+"
+
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="finished" from="Panel/CloseButton/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="pressed" from="Yes" to="Panel" method="_on_yes_pressed"]
+
+[editable path="Panel/CloseButton"]
