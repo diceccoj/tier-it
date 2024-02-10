@@ -22,7 +22,6 @@ v1.1.1
 
 ## Downloads
 Downloads can be found [here](https://github.com/diceccoj/tier-it/releases)
-*This game is still currently in the testing phase. Please report any bugs found.
 
 ## Buy me a coffee!
 Unfortunately, maintaining the database won't be free forever. Supporting me [here](https://www.buymeacoffee.com/diceccoj) will help maintain those costs
