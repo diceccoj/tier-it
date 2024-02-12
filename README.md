@@ -23,7 +23,7 @@ v1.2
 - The bug fix where the truth values of whether someone voted or not would change into an integer and ruin the rankings.
 
 ## Downloads
-Downloads can be found [here](https://github.com/diceccoj/tier-it/releases/tag/v1.1)
+ [Downloads can be found here](https://github.com/diceccoj/tier-it/releases)
 
 ## Buy me a coffee!
 Unfortunately, maintaining the database won't be free forever. Supporting me [here](https://www.buymeacoffee.com/diceccoj) will help maintain those costs
