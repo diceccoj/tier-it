@@ -18,10 +18,9 @@ A tier list is a list with multiple sections, S, A, B, C, D, and F. S being the 
 - Deactivate lists: Lists are deactivated when everyone in the list has voted OR by the admin's request. In this state, lists are final and cannot be edited.
 
 ## Version
-v1.1
-- Bug fixes with the "Who's Voted?" Section not displaying the right players
-- Added Windowed Support with the ability to switch between it and Fullscreen
-- Added an instruction page for new players
+v1.2
+- Version checking
+- The bug fix where the truth values of whether someone voted or not would change into an integer and ruin the rankings.
 
 ## Downloads
 Downloads can be found [here](https://github.com/diceccoj/tier-it/releases/tag/v1.1)
