@@ -25,6 +25,7 @@ User="*res://scripts/User.gd"
 Room="*res://scripts/Room.gd"
 List="*res://scripts/List.gd"
 BGM="*res://scenes/BGM.tscn"
+Game="*res://scripts/Game.gd"
 
 [display]
 

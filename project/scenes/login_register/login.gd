@@ -16,6 +16,7 @@ const main_menu = "res://scenes/main_menu/main_menu.tscn"
 
 #true if getting player info. false if simply logging in
 var fetching_info : bool = false
+var server_info : FirestoreCollection
 
 func _ready():
 	#verify save directory and load content
@@ -30,6 +31,10 @@ func _ready():
 	#connecting success and fail functions
 	Firebase.Auth.login_succeeded.connect(on_login_succeeded)
 	Firebase.Auth.login_failed.connect(on_login_failed)
+	
+	#checks if user has up to date version
+	server_info = Firebase.Firestore.collection("server_info")
+	server_info.error.connect(on_login_failed)
 
 
 
@@ -56,19 +61,31 @@ func on_login_succeeded(auth):
 	error_message.text = "Loading..."
 	grab_info_for_user()
 
-func on_login_failed(code, message):
-	error_message.add_theme_color_override("font_color", Color(0xaf0700ff))
-	error_message.text =  Firebase.prettier_error_message(message)
-
-#changes to main menu if succeeds
+#changes to main menu if login succeeds AND server version matches up
 func grab_info_for_user() -> bool:
 	var auth = Firebase.Auth.auth
 	if (auth.localid):
 		await User.grab_info_from_id(auth.localid)
-		get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
-		return true
+		var finished_task = await server_info.get_doc("info").task_finished
+		var document = await finished_task.document
+		if (document.doc_fields.latest_version == Game.version):
+			get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
+			return true
+		else:
+			error_message.add_theme_color_override("font_color", Color(0xaf0700ff))
+			error_message.text = "Your game is out of date! Please go to the GitHub page and download the latest version!"
+			return false
 	else:
 		error_message.add_theme_color_override("font_color", Color(0xaf0700ff))
 		error_message.text = "Issue getting player id"
 		return false
 		
+
+
+
+
+func on_login_failed(code, message):
+	error_message.add_theme_color_override("font_color", Color(0xaf0700ff))
+	error_message.text =  Firebase.prettier_error_message(message)
+
+

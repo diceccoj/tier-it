@@ -5,6 +5,7 @@ extends Control
 @onready var volume_value_se = $VolumeValueSE
 @onready var volume_slider_se = $VolumeSliderSE
 @onready var screen_mode = $ScreenMode
+@onready var version = $Version
 
 
 const autosave_dir : String = "user://autosave/"
@@ -12,6 +13,9 @@ const autosave_path : String = autosave_dir + "autosave.tres"
 var autosave = AutoSave.new()
 #checks autosave resource for volume information
 func _ready():
+	#find game version
+	version.text = Game.version
+	
 	#verify save directory and load volume and screenmode
 	DirAccess.make_dir_absolute(autosave_dir)
 	if(!ResourceLoader.exists(autosave_path)):

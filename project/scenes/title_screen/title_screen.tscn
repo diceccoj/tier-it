@@ -187,7 +187,7 @@ offset_right = -474.0
 offset_bottom = 297.0
 theme = ExtResource("4_21jfm")
 theme_override_font_sizes/font_size = 21
-text = "v1.1.1
+text = "v1.0
 "
 
 [node name="VolumeSliderSE" type="HSlider" parent="."]

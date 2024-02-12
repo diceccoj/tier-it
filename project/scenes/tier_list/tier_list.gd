@@ -39,9 +39,8 @@ var player_decal = load("res://scenes/other/player_decal.tscn")
 
 func _ready():
 	question.text = List.question
-	
 	#calculating thresholds and setting the indictators to let people know
-	var voted_count = List.has_voted.count(true)
+	var voted_count = max(List.has_voted.count(true), List.has_voted.count(1))
 	var best_score = len(List.players) - 1
 	var max_val = voted_count * best_score
 	var s_thresh_val = round(5*(voted_count * best_score)/6)
